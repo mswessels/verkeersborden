@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-
+use Mail;
 
 set_time_limit ( 0 );
 

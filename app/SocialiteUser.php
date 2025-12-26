@@ -4,8 +4,6 @@ use Illuminate\Contracts\Auth\Guard as Authenticator;
 use Laravel\Socialite\Contracts\Factory as Socialite;
 use App\Repositories\UserRepository as UserRepository;
 
-use Input;
-
 class SocialiteUser {
 	
 	private $users;

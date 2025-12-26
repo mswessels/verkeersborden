@@ -8,7 +8,7 @@
 				<div class="panel-heading">Pay here</div>
 				<div class="panel-body">
 				<form action="" method="POST" id="payment-form">
-					<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+					<input type="hidden" name="_token" value="{{ csrf_token() }}" />
 					<span class="payment-errors"></span>
 
 					<div class="form-row">

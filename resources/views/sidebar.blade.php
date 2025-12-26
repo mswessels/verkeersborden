@@ -22,7 +22,7 @@
 	<li class="list-group-item">
 		<span style="display:block" class="clearfix">
 			<small class="pull-right text-muted" style="display:inline-block;">{{ $otherresult->created_at->format('d-m-Y') }}</small>
-			<span class="pull-left {{{ $otherresult->right >= 15 ? 'text-success' : 'text-danger' }}}" style="display:inline-block;line-height:14px;margin-bottom:8px;">{{ explode(' ',$otherresult->user->name)[0] }} is {{{ $otherresult->right >= 15 ? 'geslaagd' : 'gezakt' }}}</span>
+			<span class="pull-left {{ $otherresult->right >= 15 ? 'text-success' : 'text-danger' }}" style="display:inline-block;line-height:14px;margin-bottom:8px;">{{ explode(' ',$otherresult->user->name)[0] }} is {{ $otherresult->right >= 15 ? 'geslaagd' : 'gezakt' }}</span>
 		</span>
 		
 		<div class="progress" style="margin-bottom:0px">

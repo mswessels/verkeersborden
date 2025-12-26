@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-use Session, Auth, Input, Cookie, Request, Response, Redirect;
+use Session, Auth, Cookie, Request, Response, Redirect;
 use App\Sign as Sign;
 use App\Result as Result;
 
@@ -37,9 +37,9 @@ class QuizController extends Controller {
 			$keys =  array_keys( $questions['data'] );
 			
 			// Process answer, save to session
-			if( Input::has('answer') ) {
+			if( request()->has('answer') ) {
 				
-				$answer = is_numeric( Input::get('answer') ) ? Input::get('answer') : 0;
+				$answer = is_numeric( request('answer') ) ? request('answer') : 0;
 			
 				$key = end((array_keys($questions['data'])));
 				

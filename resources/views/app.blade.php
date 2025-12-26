@@ -5,9 +5,9 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<meta name="description" content="{{{ isset($meta_description) ? $meta_description : '' }}}">
+		<meta name="description" content="{{ isset($meta_description) ? $meta_description : '' }}">
 
-		<title>{{{ isset($meta_title) ? $meta_title : ''}}} - DeVerkeersborden.nl</title>
+		<title>{{ isset($meta_title) ? $meta_title : ''}} - DeVerkeersborden.nl</title>
 		
 		<meta property="og:title" content="Gratis Verkeersborden Oefenen" />
 		<meta property="og:description" content="Ik heb net verkeersborden geoefend! Nu jij!" />

@@ -51,8 +51,8 @@ Vraag hier meteen je theorie examen aan. <a target="_blank" href="https://www.cb
 					<p class="text-muted"><b>Uw antwoord was: {{ $correct->description }}</b><p>
 				@else
 					<h4 class="media-heading text-danger"><b>Fout</b> beantwoord</h4>
-					<p class="text-muted"><b>Uw antwoord was:</b> {{{ empty($fout) ? '' : $fout->description }}}<p>
-					<p class="text-success"><b>Goede antwoord:</b> {{{ empty($correct->description_short) ? $correct->description : $correct->description_short }}}<p>
+					<p class="text-muted"><b>Uw antwoord was:</b> {{ empty($fout) ? '' : $fout->description }}<p>
+					<p class="text-success"><b>Goede antwoord:</b> {{ empty($correct->description_short) ? $correct->description : $correct->description_short }}<p>
 				@endif
 			  </div>
 			</div>
@@ -74,7 +74,7 @@ Vraag hier meteen je theorie examen aan. <a target="_blank" href="https://www.cb
 				<li class="list-group-item">
 					<span style="display:block" class="clearfix">
 						<small class="pull-right text-muted" style="display:inline-block;">{{ $myresult->created_at->format('H:i d-m-Y') }}</small>
-						<span class="pull-left {{{ $myresult->right >= 15 ? 'text-success' : 'text-danger' }}}" style="display:inline-block;line-height:14px;margin-bottom:8px;">{{{ $myresult->right >= 15 ? 'Geslaagd' : 'Gezakt' }}}</span>
+						<span class="pull-left {{ $myresult->right >= 15 ? 'text-success' : 'text-danger' }}" style="display:inline-block;line-height:14px;margin-bottom:8px;">{{ $myresult->right >= 15 ? 'Geslaagd' : 'Gezakt' }}</span>
 					</span>
 					
 					<div class="progress" style="margin-bottom:0px">
@@ -99,7 +99,7 @@ Vraag hier meteen je theorie examen aan. <a target="_blank" href="https://www.cb
 				<li class="list-group-item">
 					<span style="display:block" class="clearfix">
 						<small class="pull-right text-muted" style="display:inline-block;">{{ $otherresult->created_at->format('d-m-Y') }}</small>
-						<span class="pull-left {{{ $otherresult->right >= 15 ? 'text-success' : 'text-danger' }}}" style="display:inline-block;line-height:14px;margin-bottom:8px;">{{ explode(' ',$otherresult->user->name)[0] }} is {{{ $otherresult->right >= 15 ? 'geslaagd' : 'gezakt' }}}</span>
+						<span class="pull-left {{ $otherresult->right >= 15 ? 'text-success' : 'text-danger' }}" style="display:inline-block;line-height:14px;margin-bottom:8px;">{{ explode(' ',$otherresult->user->name)[0] }} is {{ $otherresult->right >= 15 ? 'geslaagd' : 'gezakt' }}</span>
 					</span>
 					
 					<div class="progress" style="margin-bottom:0px">

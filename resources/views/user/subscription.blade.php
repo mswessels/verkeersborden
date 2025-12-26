@@ -26,7 +26,7 @@
 			@endif			
 				
 			<form action="{{ Request::url() }}" method="POST">
-				<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+				<input type="hidden" name="_token" value="{{ csrf_token() }}" />
 				
 				<div class="form-group">
 					<label for="plan">Do You want to Change or Upgrade Your Subscription?</label>

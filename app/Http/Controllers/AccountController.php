@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-use Input, Validator, Auth, Request;
+use Validator, Auth, Request;
 
 class AccountController extends Controller {
 
@@ -11,7 +11,7 @@ class AccountController extends Controller {
 	
 	public function postAccount()
 	{
-		$input = Input::all();
+		$input = request()->all();
 		
 		$v = Validator::make($input, [
 			'name' => 'required|max:255',

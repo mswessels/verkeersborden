@@ -32,7 +32,7 @@ header('Pragma: no-cache');
 					
 					<div class="funkyradio-primary">
 						<input type="radio" name="answer" value="{{ $option['id'] }}" id="{{ $option['id'] }}" />
-						<label for="{{ $option['id'] }}"><span>{{{ empty($option['description_short']) ? $option['description'] : $option['description_short'] }}}</span></label>
+						<label for="{{ $option['id'] }}"><span>{{ empty($option['description_short']) ? $option['description'] : $option['description_short'] }}</span></label>
 					</div>
 					
 					@endforeach

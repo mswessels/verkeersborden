@@ -1,17 +1,11 @@
 <?php
 
-class ExampleTest extends TestCase {
+namespace Tests;
 
-	/**
-	 * A basic functional test example.
-	 *
-	 * @return void
-	 */
-	public function testBasicExample()
-	{
-		$response = $this->call('GET', '/');
-
-		$this->assertEquals(200, $response->getStatusCode());
-	}
-
+class ExampleTest extends TestCase
+{
+    public function test_example()
+    {
+        $this->get('/')->assertStatus(200);
+    }
 }

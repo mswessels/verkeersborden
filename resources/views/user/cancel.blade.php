@@ -31,7 +31,7 @@
 			You will still have access to our app until your subscription end date is met.</br></br>
 			
 			<form action="{{ Request::url() }}" method="POST">
-				<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+				<input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
 				<div class="form-group">
 					<input class="btn btn-link" type="submit" value="Yes, cancel my subscription">

@@ -1,9 +1,8 @@
 <?php namespace App\Http\Controllers;
 
-use Input, Auth, Redirect, Config, User;
+use Auth, Redirect, Config;
 use Stripe\Coupon as Coupon;
 use Stripe\Plan as Plan;
-use Laravel\Cashier\StripeGateway as Invoice;
 use Stripe\Stripe;
 
 class StripeController extends Controller {
@@ -21,11 +20,16 @@ class StripeController extends Controller {
 	
 	public function postPayment()
 	{
-		if(Input::has('stripeToken'))
+		if(request()->has('stripeToken'))
 		{
-			$token = Input::get('stripeToken');
-			
-			$this->user->subscription(1)->create($token);
+			$token = request('stripeToken');
+
+			$plan = \App\Plan::orderBy('id')->value('stripe_id');
+			if (! $plan) {
+				return Redirect::back()->withErrors(['message' => 'No subscription plan configured.']);
+			}
+
+			$this->user->newSubscription('default', $plan)->create($token);
 			
 			return Redirect::to('/user/welcome');
 		}
@@ -38,52 +42,58 @@ class StripeController extends Controller {
 	/* Changed subscription via stripe */
 	public function getSubscription()
 	{
+		$subscription = $this->user->subscription('default');
 		$data = array(
-			'plans' => \App\Plan::orderBy('id')->lists('name','stripe_id'),
-			'cancelled' => $this->user->cancelled() ? true : false,
-			'myPlan' => $this->user->cancelled() ?: $this->user->stripe_plan,
+			'plans' => \App\Plan::orderBy('id')->pluck('name','stripe_id'),
+			'cancelled' => $subscription ? $subscription->cancelled() : false,
+			'myPlan' => $subscription ? $subscription->stripe_plan : null,
 		);
 		return view('user.subscription')->with($data);
 	}
 		
 	public function postSubscription()
 	{
-		if(Input::has('plan'))
+		if(request()->has('plan'))
 		{
-			$newPlan = Input::get('plan');
+			$newPlan = request('plan');
 			if(\App\Plan::where('stripe_id',$newPlan)->first())
 			{
 				try {
 					
 					/* Allows user to swap plans and add coupon to next billing */
-					if(Input::has('coupon') && !empty(Input::get('coupon'))) {
+					if(request()->has('coupon') && !empty(request('coupon'))) {
 						try {
-							$coupon = Coupon::retrieve(Input::get('coupon')); //check coupon exists
+							$coupon = Coupon::retrieve(request('coupon')); //check coupon exists
 							if($coupon->times_redeemed >= $coupon->max_redemptions)
 								return redirect()->back()->withErrors(['message' => trans('stripe.couponoverused')]);
-						} catch (\Stripe\Error\InvalidRequest $e) {
+						} catch (\Stripe\Exception\InvalidRequestException $e) {
 							return redirect()->back()->withErrors(['message' => trans('stripe.invalidcoupon')]);
 						}
-						$this->user->applyCoupon(Input::get('coupon'));
+						$this->user->applyCoupon(request('coupon'));
 					}
 					
-					$this->user->subscription($newPlan)->swap();
+					$subscription = $this->user->subscription('default');
+					if (! $subscription) {
+						return redirect()->back()->withErrors(['message' => trans('stripe.subscription_error')]);
+					}
 
-				} catch(\Stripe\Error\Card $e) {
+					$subscription->swap($newPlan);
+
+				} catch(\Stripe\Exception\CardException $e) {
 					return redirect()->back()->withErrors(['message' => trans('stripe.card')]);
-				} catch (\Stripe\Error\InvalidRequest $e) {
+				} catch (\Stripe\Exception\InvalidRequestException $e) {
 					return redirect()->back()->withErrors(['message' => trans('stripe.invalidrequest')]);
-				} catch (\Stripe\Error\Authentication $e) {
+				} catch (\Stripe\Exception\AuthenticationException $e) {
 					return redirect()->back()->withErrors(['message' => trans('stripe.authentication')]);
-				} catch (\Stripe\Error\ApiConnection $e) {
+				} catch (\Stripe\Exception\ApiConnectionException $e) {
 					return redirect()->back()->withErrors(['message' => trans('stripe.network')]);
-				} catch (\Stripe\Error\Base $e) {
+				} catch (\Stripe\Exception\ApiErrorException $e) {
 					return redirect()->back()->withErrors(['message' => trans('stripe.basic')]);
 				} catch (Exception $e) {
 					return redirect()->back()->withErrors(['message' => trans('stripe.basic')]);
 				}
 				
-				if ($this->user->subscribed($newPlan)) {
+				if ($this->user->subscribed('default', $newPlan)) {
 					
 					return redirect()->back()->with(['message' => trans('stripe.subscription_changed')]);
 				
@@ -98,45 +108,46 @@ class StripeController extends Controller {
 	/* Add Coupon to subscription via stripe */
 	public function getCoupon()
 	{
+		$subscription = $this->user->subscription('default');
 		$data = array(
-			'plans' => \App\Plan::orderBy('id')->lists('name','stripe_id'),
-			'cancelled' => $this->user->cancelled() ? true : false,
-			'myPlan' => $this->user->cancelled() ?: $this->user->stripe_plan,
-			'subscribed' => $this->user->subscribed() ? true : false,
+			'plans' => \App\Plan::orderBy('id')->pluck('name','stripe_id'),
+			'cancelled' => $subscription ? $subscription->cancelled() : false,
+			'myPlan' => $subscription ? $subscription->stripe_plan : null,
+			'subscribed' => $this->user->subscribed('default') ? true : false,
 		);
 		return view('user.coupon')->with($data);
 	}
 	
 	public function postCoupon()
 	{
-		if(Input::has('coupon')
-			&& !empty(Input::get('coupon'))
-			&& $this->user->subscribed()) {
+		if(request()->has('coupon')
+			&& !empty(request('coupon'))
+			&& $this->user->subscribed('default')) {
 			
 			try {
 				/* Allows user to swap plans and add coupon to next billing */
 				
 				try {
-					$coupon = Coupon::retrieve(Input::get('coupon')); //check coupon exists
+					$coupon = Coupon::retrieve(request('coupon')); //check coupon exists
 					if($coupon->times_redeemed >= $coupon->max_redemptions)
 						return redirect()->back()->withErrors(['message' => trans('stripe.couponoverused')]);
-				} catch (\Stripe\Error\InvalidRequest $e) {
+				} catch (\Stripe\Exception\InvalidRequestException $e) {
 					return redirect()->back()->withErrors(['message' => trans('stripe.invalidcoupon')]);
 				}
 				
-				$this->user->applyCoupon(Input::get('coupon'));
+				$this->user->applyCoupon(request('coupon'));
 				
 				return redirect()->back()->with(['message' => trans('stripe.coupon_added')]);
 
-			} catch(\Stripe\Error\Card $e) {
+			} catch(\Stripe\Exception\CardException $e) {
 				return redirect()->back()->withErrors(['message' => trans('stripe.card')]);
-			} catch (\Stripe\Error\InvalidRequest $e) {
+			} catch (\Stripe\Exception\InvalidRequestException $e) {
 				return redirect()->back()->withErrors(['message' => trans('stripe.invalidrequest')]);
-			} catch (\Stripe\Error\Authentication $e) {
+			} catch (\Stripe\Exception\AuthenticationException $e) {
 				return redirect()->back()->withErrors(['message' => trans('stripe.authentication')]);
-			} catch (\Stripe\Error\ApiConnection $e) {
+			} catch (\Stripe\Exception\ApiConnectionException $e) {
 				return redirect()->back()->withErrors(['message' => trans('stripe.network')]);
-			} catch (\Stripe\Error\Base $e) {
+			} catch (\Stripe\Exception\ApiErrorException $e) {
 				return redirect()->back()->withErrors(['message' => trans('stripe.basic')]);
 			} catch (Exception $e) {
 				return redirect()->back()->withErrors(['message' => trans('stripe.basic')]);
@@ -149,8 +160,9 @@ class StripeController extends Controller {
 	/* Get invoices via stripe */
 	public function getInvoices()
 	{
-		if(!$this->user->cancelled() && $this->user->subscribed()) {
-			$next_invoice = Plan::retrieve($this->user->stripe_plan);
+		$subscription = $this->user->subscription('default');
+		if($subscription && $subscription->valid()) {
+			$next_invoice = Plan::retrieve($subscription->stripe_plan);
 		}
 		$data = array(
 			'next_invoice' => !isset($next_invoice) ?: $next_invoice,
@@ -163,11 +175,13 @@ class StripeController extends Controller {
 	public function getSingleInvoice($id)
 	{		
 		if(!$this->user->findInvoice($id))
-			App::abort(404);
+			abort(404);
+
+		$subscription = $this->user->subscription('default');
 		
 		$data = array(
 			'invoice' => $this->user->findInvoice($id),
-			'product' => Plan::retrieve($this->user->stripe_plan),
+			'product' => $subscription ? Plan::retrieve($subscription->stripe_plan) : null,
 			'billable' => $this->user,
 		);
 		
@@ -177,8 +191,9 @@ class StripeController extends Controller {
 	/* Cancel subscription via stripe */
 	public function getCard()
 	{
+		$subscription = $this->user->subscription('default');
 		$data = array(
-			'cancelled' => $this->user->cancelled() ? true : false
+			'cancelled' => $subscription ? $subscription->cancelled() : false
 		);
 		return view('user.card')->with($data);
 	}
@@ -186,20 +201,22 @@ class StripeController extends Controller {
 	/* Cancel subscription via stripe */
 	public function getCancel()
 	{
+		$subscription = $this->user->subscription('default');
 		$data = array(
-			'cancelled' => $this->user->cancelled() ? true : false
+			'cancelled' => $subscription ? $subscription->cancelled() : false
 		);
 		return view('user.cancel')->with($data);
 	}
 		
 	public function postCancel()
 	{
-		
-		if ($this->user->subscribed()) {
+		$subscription = $this->user->subscription('default');
+
+		if ($subscription && $subscription->valid()) {
 			
-			$this->user->subscription()->cancel();
+			$subscription->cancel();
 			
-			if ($this->user->cancelled()) {
+			if ($subscription->cancelled()) {
 				
 				return redirect()->back()->with(['message' => trans('stripe.unsubscribed')]);
 			
