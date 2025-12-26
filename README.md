@@ -9,7 +9,7 @@ Oefen gratis verkeersborden en theorie-examen vragen. De site biedt:
 
 ## Tech stack
 
-- Laravel 11 (PHP 8.2+)
+- Laravel 12 (PHP 8.2+)
 - Vite (frontend assets)
 - Stripe (Cashier)
 
@@ -38,12 +38,21 @@ php artisan migrate
 npm install
 ```
 
-4) Start de app
+4) Start de app (2 terminals)
 ```
-php artisan serve
+php artisan serve --host=127.0.0.1 --port=8000
+```
+```
 npm run dev
 ```
-Open daarna `http://localhost:8000`.
+Open daarna `http://localhost:8000`.  
+Vite draait op `http://localhost:5173` (die pagina mag leeg/zwart zijn).
+
+Zonder dev-server (alleen production assets):
+```
+npm run build
+php artisan serve --host=127.0.0.1 --port=8000
+```
 
 ## Tests
 
@@ -54,8 +63,6 @@ php artisan test
 ## Belangrijke env-variabelen
 
 - `STRIPE_KEY`, `STRIPE_SECRET`, `STRIPE_WEBHOOK_SECRET`
-- `FACEBOOK_CLIENT_ID`, `FACEBOOK_CLIENT_SECRET`, `FACEBOOK_REDIRECT_URI`
-- `TWITTER_CLIENT_ID`, `TWITTER_CLIENT_SECRET`, `TWITTER_REDIRECT_URI`
 
 ## Product beschrijving
 
