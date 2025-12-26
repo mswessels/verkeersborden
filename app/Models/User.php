@@ -1,11 +1,13 @@
-<?php namespace App;
+<?php
+
+namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Cashier\Billable;
 
-class User extends Authenticatable {
-
+class User extends Authenticatable
+{
 	use Billable, Notifiable;
 
 	/**
@@ -20,7 +22,7 @@ class User extends Authenticatable {
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['name', 'email', 'password', 'avatar','ip'];
+	protected $fillable = ['name', 'email', 'password', 'avatar', 'ip'];
 	
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -32,7 +34,7 @@ class User extends Authenticatable {
 	
 	public function results()
 	{
-		return $this->hasMany('\App\Result');
+		return $this->hasMany(\App\Result::class);
 	}
-	
+
 }

@@ -14,7 +14,7 @@ article .banner{margin:0 15px 15px 0;}
 .header h3 a{color:#777;text-decoration:none;}
 .footer{padding-top:19px;color:#777;border-top:1px solid #e5e5e5;}
 .container-narrow > hr{margin:30px 0;}
-.jumbotron{background:url('../img/kaart.png');text-align:center;border-bottom:1px solid #e5e5e5;text-shadow:0px 0px 5px #fff;}
+.jumbotron{background:url('/img/kaart.png');text-align:center;border-bottom:1px solid #e5e5e5;text-shadow:0px 0px 5px #fff;}
 .jumbotron .btn{padding:14px 24px;font-size:21px;text-shadow:none;}
 .jumbotron p{margin-bottom:15px;font-size:21px;font-weight:300;}
 .marketing{margin:40px 0;}

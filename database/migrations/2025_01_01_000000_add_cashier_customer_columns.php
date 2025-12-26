@@ -13,12 +13,12 @@ class AddCashierCustomerColumns extends Migration
                 $table->string('stripe_id')->nullable()->index();
             }
 
-            if (! Schema::hasColumn('users', 'card_brand')) {
-                $table->string('card_brand')->nullable();
+            if (! Schema::hasColumn('users', 'pm_type')) {
+                $table->string('pm_type')->nullable();
             }
 
-            if (! Schema::hasColumn('users', 'card_last_four')) {
-                $table->string('card_last_four', 4)->nullable();
+            if (! Schema::hasColumn('users', 'pm_last_four')) {
+                $table->string('pm_last_four', 4)->nullable();
             }
 
             if (! Schema::hasColumn('users', 'trial_ends_at')) {
@@ -30,12 +30,12 @@ class AddCashierCustomerColumns extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            if (Schema::hasColumn('users', 'card_brand')) {
-                $table->dropColumn('card_brand');
+            if (Schema::hasColumn('users', 'pm_type')) {
+                $table->dropColumn('pm_type');
             }
 
-            if (Schema::hasColumn('users', 'card_last_four')) {
-                $table->dropColumn('card_last_four');
+            if (Schema::hasColumn('users', 'pm_last_four')) {
+                $table->dropColumn('pm_last_four');
             }
         });
     }

@@ -20,7 +20,11 @@
 				
 			<h1>Your subscription is ended</h1>
 			We won't bill you anymore.<br>
-			However you're account remains active until {{ \Carbon\Carbon::parse(Auth::user()->subscription_ends_at)->format('d-m-Y') }}
+			@php
+				$subscription = Auth::user()->subscription('default');
+				$endsAt = $subscription && $subscription->ends_at ? $subscription->ends_at->format('d-m-Y') : 'N/A';
+			@endphp
+			However you're account remains active until {{ $endsAt }}
 			
 			@else
 			

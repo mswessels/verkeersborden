@@ -23,7 +23,7 @@ class AccountController extends Controller {
 			return redirect()->back()->withErrors($v->errors());
 		}
 				
-		$user = \App\User::create([
+		$user = \App\Models\User::create([
 			'name' 	=> $input['name'],
 			'email' => $input['email'],
 			'ip' 	=> Request::server('REMOTE_ADDR'),

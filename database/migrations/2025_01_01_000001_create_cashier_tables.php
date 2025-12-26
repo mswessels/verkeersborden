@@ -10,12 +10,12 @@ class CreateCashierTables extends Migration
     {
         if (! Schema::hasTable('subscriptions')) {
             Schema::create('subscriptions', function (Blueprint $table) {
-                $table->bigIncrements('id');
+                $table->id();
                 $table->unsignedBigInteger('user_id');
-                $table->string('name');
-                $table->string('stripe_id');
+                $table->string('type');
+                $table->string('stripe_id')->unique();
                 $table->string('stripe_status');
-                $table->string('stripe_plan')->nullable();
+                $table->string('stripe_price')->nullable();
                 $table->integer('quantity')->nullable();
                 $table->timestamp('trial_ends_at')->nullable();
                 $table->timestamp('ends_at')->nullable();
@@ -27,14 +27,15 @@ class CreateCashierTables extends Migration
 
         if (! Schema::hasTable('subscription_items')) {
             Schema::create('subscription_items', function (Blueprint $table) {
-                $table->bigIncrements('id');
+                $table->id();
                 $table->unsignedBigInteger('subscription_id');
-                $table->string('stripe_id')->index();
-                $table->string('stripe_plan');
+                $table->string('stripe_id')->unique();
+                $table->string('stripe_product');
+                $table->string('stripe_price');
                 $table->integer('quantity')->nullable();
                 $table->timestamps();
 
-                $table->unique(['subscription_id', 'stripe_plan']);
+                $table->index(['subscription_id', 'stripe_price']);
             });
         }
     }

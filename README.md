@@ -1,23 +1,66 @@
-## Laravel PHP Framework
+# DeVerkeersborden.nl
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/downloads.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+Oefen gratis verkeersborden en theorie-examen vragen. De site biedt:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+- Verkeersborden oefenen (quiz met resultaten)
+- Overzicht van alle verkeersborden
+- Theorie-examen oefenpagina
+- Inloggen/registreren en abonnementen via Stripe
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+## Tech stack
 
-## Official Documentation
+- Laravel 11 (PHP 8.2+)
+- Vite (frontend assets)
+- Stripe (Cashier)
+- Social login via Socialite
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+## Lokaal draaien
 
-## Contributing
+1) Maak een `.env` en genereer een key
+```
+cp .env.example .env
+php artisan key:generate
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+2) Gebruik SQLite voor snel lokaal testen
+```
+touch database/database.sqlite
+```
+Zet in `.env`:
+```
+DB_CONNECTION=sqlite
+DB_DATABASE=database/database.sqlite
+```
 
-### License
+3) Installeer dependencies en draai migraties
+```
+composer install
+php artisan migrate
+npm install
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+4) Start de app
+```
+php artisan serve
+npm run dev
+```
+Open daarna `http://localhost:8000`.
+
+## Tests
+
+```
+php artisan test
+```
+
+## Belangrijke env-variabelen
+
+- `STRIPE_KEY`, `STRIPE_SECRET`, `STRIPE_WEBHOOK_SECRET`
+- `FACEBOOK_CLIENT_ID`, `FACEBOOK_CLIENT_SECRET`, `FACEBOOK_REDIRECT_URI`
+- `TWITTER_CLIENT_ID`, `TWITTER_CLIENT_SECRET`, `TWITTER_REDIRECT_URI`
+
+## Product beschrijving
+
+DeVerkeersborden.nl helpt leerlingen en examenkandidaten om verkeersborden te leren en
+hun kennis te testen. Je kunt direct oefenen, je resultaten bekijken en optioneel een
+abonnement afsluiten voor extra functionaliteit. De focus ligt op snelle oefening en
+duidelijke feedback.

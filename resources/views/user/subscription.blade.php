@@ -31,7 +31,12 @@
 				<div class="form-group">
 					<label for="plan">Do You want to Change or Upgrade Your Subscription?</label>
 
-					{!! Form::select('plan', [null=>'You don\'t have a subscription yet.'] + $plans, $myPlan,array('class'=>'form-control')) !!}
+					<select name="plan" id="plan" class="form-control">
+						<option value="">You don't have a subscription yet.</option>
+						@foreach($plans as $planId => $planName)
+							<option value="{{ $planId }}" @selected($myPlan == $planId)>{{ $planName }}</option>
+						@endforeach
+					</select>
 				</div>
 				
 				<div class="form-group">

@@ -1,8 +1,10 @@
 <?php namespace App\Http\Controllers;
 
-use Auth, Redirect, Config;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Redirect;
 use Stripe\Coupon as Coupon;
-use Stripe\Plan as Plan;
+use Stripe\Price as Price;
 use Stripe\Stripe;
 
 class StripeController extends Controller {
@@ -46,7 +48,7 @@ class StripeController extends Controller {
 		$data = array(
 			'plans' => \App\Plan::orderBy('id')->pluck('name','stripe_id'),
 			'cancelled' => $subscription ? $subscription->cancelled() : false,
-			'myPlan' => $subscription ? $subscription->stripe_plan : null,
+			'myPlan' => $subscription ? $subscription->stripe_price : null,
 		);
 		return view('user.subscription')->with($data);
 	}
@@ -112,7 +114,7 @@ class StripeController extends Controller {
 		$data = array(
 			'plans' => \App\Plan::orderBy('id')->pluck('name','stripe_id'),
 			'cancelled' => $subscription ? $subscription->cancelled() : false,
-			'myPlan' => $subscription ? $subscription->stripe_plan : null,
+			'myPlan' => $subscription ? $subscription->stripe_price : null,
 			'subscribed' => $this->user->subscribed('default') ? true : false,
 		);
 		return view('user.coupon')->with($data);
@@ -161,11 +163,11 @@ class StripeController extends Controller {
 	public function getInvoices()
 	{
 		$subscription = $this->user->subscription('default');
-		if($subscription && $subscription->valid()) {
-			$next_invoice = Plan::retrieve($subscription->stripe_plan);
+		if ($subscription && $subscription->valid() && !empty($subscription->stripe_price)) {
+			$next_invoice = Price::retrieve($subscription->stripe_price);
 		}
 		$data = array(
-			'next_invoice' => !isset($next_invoice) ?: $next_invoice,
+			'next_invoice' => isset($next_invoice) ? $next_invoice : null,
 			'invoices' => $this->user->invoices(),
 			'user' => $this->user,
 		);
@@ -178,10 +180,17 @@ class StripeController extends Controller {
 			abort(404);
 
 		$subscription = $this->user->subscription('default');
-		
+		$product = null;
+		$productName = null;
+		if ($subscription && !empty($subscription->stripe_price)) {
+			$product = Price::retrieve($subscription->stripe_price, ['expand' => ['product']]);
+			$productName = $product->product->name ?? $product->nickname ?? $product->id;
+		}
+
 		$data = array(
 			'invoice' => $this->user->findInvoice($id),
-			'product' => $subscription ? Plan::retrieve($subscription->stripe_plan) : null,
+			'product' => $product,
+			'product_name' => $productName,
 			'billable' => $this->user,
 		);
 		

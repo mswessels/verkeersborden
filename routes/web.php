@@ -1,24 +1,30 @@
 <?php
 
+use App\Http\Controllers\AccountController;
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\CbrCrawler;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\QuizController;
+use App\Http\Controllers\SocialiteController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', 'HomeController@index');
+Route::get('/', [HomeController::class, 'index']);
 
-Route::get('quiz', 'QuizController@getQuestion');
-Route::post('quiz', 'QuizController@getQuestion');
-Route::get('quiz/start', 'QuizController@doStart');
-Route::get('quiz/resultaat', 'QuizController@getResults');
+Route::get('quiz', [QuizController::class, 'getQuestion']);
+Route::post('quiz', [QuizController::class, 'getQuestion']);
+Route::get('quiz/start', [QuizController::class, 'doStart']);
+Route::get('quiz/resultaat', [QuizController::class, 'getResults']);
 
-Route::get('verkeersborden-oefenen', 'QuizController@getStart');
-Route::get('links', 'HomeController@links');
-Route::get('alle-verkeersborden', 'HomeController@alleBorden');
-Route::get('theorie-examen-oefenen', 'HomeController@theorieExamen');
+Route::get('verkeersborden-oefenen', [QuizController::class, 'getStart']);
+Route::get('links', [HomeController::class, 'links']);
+Route::get('alle-verkeersborden', [HomeController::class, 'alleBorden']);
+Route::get('theorie-examen-oefenen', [HomeController::class, 'theorieExamen']);
 
-Route::get('gogosupercrawler', 'CbrCrawler@start');
-Route::get('start_mailing', 'CbrCrawler@start_mailing');
+Route::get('gogosupercrawler', [CbrCrawler::class, 'start']);
+Route::get('start_mailing', [CbrCrawler::class, 'start_mailing']);
 
-Route::get('auth/facebook', 'SocialiteController@facebookLogin');
-Route::get('auth/twitter', 'SocialiteController@twitterLogin');
-Route::get('auth/register', 'Auth\AuthController@getRegister');
-Route::post('auth/register', 'AccountController@postAccount');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
+Route::get('auth/facebook', [SocialiteController::class, 'facebookLogin']);
+Route::get('auth/twitter', [SocialiteController::class, 'twitterLogin']);
+Route::get('auth/register', [AuthController::class, 'getRegister']);
+Route::post('auth/register', [AccountController::class, 'postAccount']);
+Route::get('auth/logout', [AuthController::class, 'getLogout']);

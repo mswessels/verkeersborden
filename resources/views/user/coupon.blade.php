@@ -24,7 +24,7 @@
 			<strong>You don't have a subscription (anymore).</strong><br>
 			Would you like to subscribe to a plan?<br>
 			You can also add a coupon there.<br>
-			{!! link_to('user/subscription', 'Click here') !!}
+			<a href="{{ url('user/subscription') }}">Click here</a>
 			
 			@else
 				

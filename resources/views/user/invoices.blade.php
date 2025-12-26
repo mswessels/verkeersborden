@@ -30,9 +30,16 @@
 				</thead>
 				<tbody>
 					@if(!empty($next_invoice))
+					@php
+						$nextAmount = $next_invoice->unit_amount ?? $next_invoice->unit_amount_decimal ?? 0;
+						$nextCurrency = $next_invoice->currency ?? 'usd';
+						$nextPaymentDate = $user->trial_ends_at
+							? Carbon\Carbon::parse($user->trial_ends_at)->toFormattedDateString()
+							: 'N/A';
+					@endphp
 					<tr>
-						<td>{{ Carbon\Carbon::parse($user->trial_ends_at)->toFormattedDateString() }} (Next payment)</td>
-						<td>{{ money_format('$%i', $next_invoice->amount/100) }}</td>
+						<td>{{ $nextPaymentDate }} (Next payment)</td>
+						<td>{{ \Laravel\Cashier\Cashier::formatAmount((int) $nextAmount, $nextCurrency) }}</td>
 						<td>Due</td>
 						<td></td>
 					</tr>
@@ -41,10 +48,10 @@
 					@foreach($invoices as $invoice)
 			
 					<tr>
-						<td>{{ Carbon\Carbon::createFromTimestamp($invoice->date)->toFormattedDateString() }}</td>
-						<td>{{ $invoice->dollars() }}</td>
+						<td>{{ $invoice->date()->toFormattedDateString() }}</td>
+						<td>{{ $invoice->total() }}</td>
 						<td>Paid</td>
-						<td>{!! link_to('/user/invoice/'. $invoice->id,'View',['target'=>'_blank']) !!}</td> 
+						<td><a href="{{ url('/user/invoice/' . $invoice->id) }}" target="_blank">View</a></td>
 					</tr>
 					
 					@endforeach

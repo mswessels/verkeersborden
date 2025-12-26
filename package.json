@@ -1,7 +1,12 @@
 {
   "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
   "devDependencies": {
-    "gulp": "^3.8.8",
-    "laravel-elixir": "*"
+    "laravel-vite-plugin": "^1.0.4",
+    "vite": "^5.4.2"
   }
 }

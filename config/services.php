@@ -14,14 +14,14 @@ return [
     |
     */
 
+    'postmark' => [
+        'token' => env('POSTMARK_TOKEN'),
+    ],
+
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN', 'deverkeersborden.nl'),
         'secret' => env('MAILGUN_SECRET', 'key-e75a7bd57849e1094d7c67301096582a'),
         'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
-    ],
-
-    'postmark' => [
-        'token' => env('POSTMARK_TOKEN'),
     ],
 
     'mandrill' => [
@@ -50,6 +50,17 @@ return [
         'client_id' => env('TWITTER_CLIENT_ID', 'fe0dJWM0VKFgF41CkQLDnnSj9'),
         'client_secret' => env('TWITTER_CLIENT_SECRET', 'RhuTUe2u8B9LEx62hy6nJgrwlsezPUtYMNtNOhmenmp2t8Hq1r'),
         'redirect' => env('TWITTER_REDIRECT_URI', 'http://deverkeersborden.nl/auth/twitter'),
+    ],
+
+    'resend' => [
+        'key' => env('RESEND_KEY'),
+    ],
+
+    'slack' => [
+        'notifications' => [
+            'bot_user_oauth_token' => env('SLACK_BOT_USER_OAUTH_TOKEN'),
+            'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
+        ],
     ],
 
 ];
