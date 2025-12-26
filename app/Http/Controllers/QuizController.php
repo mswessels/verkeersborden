@@ -36,7 +36,7 @@ class QuizController extends Controller {
 				
 				$answer = is_numeric( request('answer') ) ? request('answer') : 0;
 			
-				$key = end((array_keys($questions['data'])));
+				$key = array_key_last($questions['data']);
 				
 				$questions['data'][ $key  ] = $answer;
 				
