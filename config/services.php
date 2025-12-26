@@ -40,18 +40,6 @@ return [
         'webhook' => env('STRIPE_WEBHOOK_SECRET'),
     ],
 
-    'facebook' => [
-        'client_id' => env('FACEBOOK_CLIENT_ID', '903671289765795'),
-        'client_secret' => env('FACEBOOK_CLIENT_SECRET', '981609bc873cacb891f78457f27c0a3f'),
-        'redirect' => env('FACEBOOK_REDIRECT_URI', 'http://deverkeersborden.nl/auth/facebook'),
-    ],
-
-    'twitter' => [
-        'client_id' => env('TWITTER_CLIENT_ID', 'fe0dJWM0VKFgF41CkQLDnnSj9'),
-        'client_secret' => env('TWITTER_CLIENT_SECRET', 'RhuTUe2u8B9LEx62hy6nJgrwlsezPUtYMNtNOhmenmp2t8Hq1r'),
-        'redirect' => env('TWITTER_REDIRECT_URI', 'http://deverkeersborden.nl/auth/twitter'),
-    ],
-
     'resend' => [
         'key' => env('RESEND_KEY'),
     ],

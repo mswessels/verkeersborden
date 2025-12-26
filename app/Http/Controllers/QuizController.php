@@ -6,11 +6,6 @@ use App\Result as Result;
 
 class QuizController extends Controller {
 
-	public function __construct()
-	{
-		$this->middleware('auth');
-	}
-	
 	public function getStart()
 	{
 		$meta = array(
@@ -114,9 +109,13 @@ class QuizController extends Controller {
 	
 	public function getResults()
 	{
-		// only for logged in users
-		if( Auth::guest() )
+		if (Auth::guest()) {
+			if (Session::has('questions') && Session::get('questions')['count'] == 20) {
+				return redirect('/auth/register');
+			}
+
 			return redirect('/verkeersborden-oefenen');
+		}
 		
 		// find results or save
 		if( Session::has('questions') && Session::get('questions')['count'] == 20):
@@ -125,11 +124,6 @@ class QuizController extends Controller {
 			$results = Result::where('user_id', Auth::user()->id )->orderBy('created_at','DESC')->first();
 		endif;
 		
-		// if session exsists save the thgingsssws
-
-		if ( Auth::guest() )
-			return redirect('/auth/register');
-			
 		$data = array(
 			'results' => $results,
 			'questions' => json_decode($results->results),

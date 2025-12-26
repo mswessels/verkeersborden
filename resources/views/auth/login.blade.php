@@ -56,14 +56,6 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-4">
-			<div class="panel panel-default">
-				<div class="panel-heading">Signin</div>
-				<div class="panel-body">
-				<a class="btn btn-link" href="{{ url('/auth/facebook') }}">Login with Facebook</a>
-				</div>
-			</div>
-		</div>
 	</div>
 </div>
 @endsection

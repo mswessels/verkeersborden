@@ -12,7 +12,6 @@ Oefen gratis verkeersborden en theorie-examen vragen. De site biedt:
 - Laravel 11 (PHP 8.2+)
 - Vite (frontend assets)
 - Stripe (Cashier)
-- Social login via Socialite
 
 ## Lokaal draaien
 
