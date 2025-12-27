@@ -5,12 +5,84 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<meta name="description" content="{{ isset($meta_description) ? $meta_description : '' }}">
+	@php
+		$siteName = 'DeVerkeersborden.nl';
+		$siteUrl = rtrim(config('app.url') ?: url('/'), '/');
+		$metaTitle = $meta_title ?? $siteName;
+		$metaDescription = $meta_description ?? 'Oefen verkeersborden met een gratis quiz en leer betekenissen, regels en ezelsbruggetjes voor je theorie-examen.';
+		$canonicalUrl = $canonical ?? url()->current();
+		$metaImage = $meta_image ?? asset('img/automobile-2679744_640.jpg');
+		$metaType = $meta_type ?? 'website';
+	@endphp
 
-	<title>{{ isset($meta_title) ? $meta_title : '' }}{{ isset($meta_title) && strpos($meta_title, 'DeVerkeersborden.nl') === false ? ' - DeVerkeersborden.nl' : '' }}</title>
-		
-	<meta property="og:title" content="Gratis Verkeersborden Oefenen" />
-	<meta property="og:description" content="Ik heb net verkeersborden geoefend! Nu jij!" />
+	<meta name="description" content="{{ $metaDescription }}">
+	<link rel="canonical" href="{{ $canonicalUrl }}">
+
+	<title>{{ $metaTitle }}{{ strpos($metaTitle, $siteName) === false ? ' - ' . $siteName : '' }}</title>
+
+	<meta property="og:locale" content="nl_NL">
+	<meta property="og:site_name" content="{{ $siteName }}">
+	<meta property="og:title" content="{{ $metaTitle }}">
+	<meta property="og:description" content="{{ $metaDescription }}">
+	<meta property="og:type" content="{{ $metaType }}">
+	<meta property="og:url" content="{{ $canonicalUrl }}">
+	<meta property="og:image" content="{{ $metaImage }}">
+
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="{{ $metaTitle }}">
+	<meta name="twitter:description" content="{{ $metaDescription }}">
+	<meta name="twitter:image" content="{{ $metaImage }}">
+
+	@php
+		$structuredData = [];
+		$structuredData[] = [
+			'@context' => 'https://schema.org',
+			'@type' => 'Organization',
+			'name' => $siteName,
+			'url' => $siteUrl,
+			'logo' => asset('img/kaart.png'),
+		];
+		$structuredData[] = [
+			'@context' => 'https://schema.org',
+			'@type' => 'WebSite',
+			'name' => $siteName,
+			'url' => $siteUrl,
+			'potentialAction' => [
+				'@type' => 'SearchAction',
+				'target' => $siteUrl . '/alle-verkeersborden?q={search_term_string}',
+				'query-input' => 'required name=search_term_string',
+			],
+		];
+
+		if (isset($breadcrumbs) && is_array($breadcrumbs) && count($breadcrumbs) > 0) {
+			$listItems = [];
+			$position = 1;
+			foreach ($breadcrumbs as $crumb) {
+				$label = $crumb['label'] ?? null;
+				if (!$label) {
+					continue;
+				}
+				$listItems[] = [
+					'@type' => 'ListItem',
+					'position' => $position++,
+					'name' => $label,
+					'item' => $crumb['url'] ?? $canonicalUrl,
+				];
+			}
+
+			if ($listItems) {
+				$structuredData[] = [
+					'@context' => 'https://schema.org',
+					'@type' => 'BreadcrumbList',
+					'itemListElement' => $listItems,
+				];
+			}
+		}
+	@endphp
+
+	@foreach($structuredData as $schema)
+		<script type="application/ld+json">{!! json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}</script>
+	@endforeach
 	<meta name="3b081b73cc1ab73" content="6b552ee54cdacb714c8704dda0128aff" />
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">

@@ -649,6 +649,29 @@ h4 small {
   text-underline-offset: 3px;
 }
 
+.rvv-search {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.rvv-search__label {
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0;
+}
+
+.rvv-search__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.rvv-search__row .form-control {
+  flex: 1 1 240px;
+  min-height: 44px;
+}
+
 .rvv-sign-actions {
   margin-top: var(--space-2);
   display: flex;
@@ -1085,6 +1108,10 @@ ins.adsbygoogle {
   padding: 8px;
 }
 
+.media-left picture {
+  display: block;
+}
+
 .rvv-sign-list .media {
   display: flex;
   align-items: flex-start;
@@ -1106,6 +1133,15 @@ ins.adsbygoogle {
   width: 80px;
   height: 80px;
   object-fit: contain;
+  display: block;
+}
+
+.rvv-sign-list picture {
+  display: block;
+}
+
+.rvv-sign-card picture {
+  flex: 0 0 72px;
   display: block;
 }
 

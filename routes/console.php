@@ -3,8 +3,10 @@
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Schedule;
 use Illuminate\Support\Str;
 use App\Sign;
+use App\SignCategory;
 
 /*
 |--------------------------------------------------------------------------
@@ -210,6 +212,15 @@ Artisan::command('sitemap:generate {--base=}', function () {
     $existingUrls = $normalizeToBase($existingUrls, $base);
     $existingUrls = $filterSignUrls($existingUrls);
 
+    $sqlContents = null;
+    $sqlPath = database_path('u50725p66942_verkeer_1766770578.sql');
+    if (is_file($sqlPath)) {
+        $contents = file_get_contents($sqlPath);
+        if ($contents !== false) {
+            $sqlContents = $contents;
+        }
+    }
+
     $signUrls = [];
     try {
         if (Schema::hasTable('signs') && Sign::query()->count() > 0) {
@@ -227,25 +238,48 @@ Artisan::command('sitemap:generate {--base=}', function () {
     } catch (Throwable $e) {
     }
 
-    $sqlPath = database_path('u50725p66942_verkeer_1766770578.sql');
-    if (is_file($sqlPath)) {
-        $contents = file_get_contents($sqlPath);
-        if ($contents !== false) {
-            $rows = $parseRows($contents, 'signs');
-            foreach ($rows as $row) {
-                if (count($row) < 7) {
-                    continue;
-                }
-
-                $code = $normalizeValue($row[6]);
-                if (!$code) {
-                    continue;
-                }
-
-                $description = $normalizeValue($row[3]) ?: $code;
-                $slug = Str::slug($description);
-                $signUrls[] = $base . '/verkeersborden/' . $code . '-' . $slug;
+    if ($sqlContents) {
+        $rows = $parseRows($sqlContents, 'signs');
+        foreach ($rows as $row) {
+            if (count($row) < 7) {
+                continue;
             }
+
+            $code = $normalizeValue($row[6]);
+            if (!$code) {
+                continue;
+            }
+
+            $description = $normalizeValue($row[3]) ?: $code;
+            $slug = Str::slug($description);
+            $signUrls[] = $base . '/verkeersborden/' . $code . '-' . $slug;
+        }
+    }
+
+    $seriesUrls = [];
+    try {
+        if (Schema::hasTable('signs_categories') && SignCategory::query()->count() > 0) {
+            $letters = SignCategory::query()->orderBy('letter')->pluck('letter');
+            foreach ($letters as $letter) {
+                $seriesUrls[] = $base . '/verkeersborden/serie-' . Str::lower($letter);
+            }
+        }
+    } catch (Throwable $e) {
+    }
+
+    if ($sqlContents) {
+        $rows = $parseRows($sqlContents, 'signs_categories');
+        foreach ($rows as $row) {
+            if (count($row) < 3) {
+                continue;
+            }
+
+            $letter = $normalizeValue($row[2]);
+            if (!$letter) {
+                continue;
+            }
+
+            $seriesUrls[] = $base . '/verkeersborden/serie-' . Str::lower($letter);
         }
     }
 
@@ -254,6 +288,9 @@ Artisan::command('sitemap:generate {--base=}', function () {
         $unique[$url] = true;
     }
     foreach ($signUrls as $url) {
+        $unique[$url] = true;
+    }
+    foreach ($seriesUrls as $url) {
         $unique[$url] = true;
     }
 
@@ -281,3 +318,86 @@ Artisan::command('sitemap:generate {--base=}', function () {
 
     $this->info('Sitemap generated with ' . count($urls) . ' URLs.');
 })->purpose('Generate sitemap.xml with sign URLs.');
+
+Schedule::command('sitemap:generate')
+    ->dailyAt('02:15')
+    ->withoutOverlapping()
+    ->description('Generate sitemap.xml nightly.');
+
+Artisan::command('sign-images:generate {--force}', function () {
+    $sourceDir = public_path('img/borden');
+    if (!is_dir($sourceDir)) {
+        $this->error('Source directory not found: ' . $sourceDir);
+        return;
+    }
+
+    $supportsWebp = function_exists('imagewebp');
+    $supportsAvif = function_exists('imageavif');
+
+    if (!$supportsWebp && !$supportsAvif) {
+        $this->error('No WebP or AVIF support found in GD.');
+        return;
+    }
+
+    $files = glob($sourceDir . '/*.{png,jpg,jpeg,JPG,JPEG,PNG}', GLOB_BRACE) ?: [];
+    $force = (bool) $this->option('force');
+    $webpCount = 0;
+    $avifCount = 0;
+    $skipped = 0;
+
+    foreach ($files as $file) {
+        $extension = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+        $baseName = pathinfo($file, PATHINFO_FILENAME);
+        $webpPath = $sourceDir . '/' . $baseName . '.webp';
+        $avifPath = $sourceDir . '/' . $baseName . '.avif';
+
+        if (!$force) {
+            $hasWebp = is_file($webpPath);
+            $hasAvif = is_file($avifPath);
+
+            if (($hasWebp || !$supportsWebp) && ($hasAvif || !$supportsAvif)) {
+                $skipped++;
+                continue;
+            }
+        }
+
+        switch ($extension) {
+            case 'png':
+                $image = imagecreatefrompng($file);
+                if ($image) {
+                    imagealphablending($image, true);
+                    imagesavealpha($image, true);
+                }
+                break;
+            case 'jpg':
+            case 'jpeg':
+                $image = imagecreatefromjpeg($file);
+                break;
+            default:
+                $image = false;
+        }
+
+        if (!$image) {
+            $skipped++;
+            continue;
+        }
+
+        if ($supportsWebp && (!is_file($webpPath) || $force)) {
+            if (imagewebp($image, $webpPath, 82)) {
+                $webpCount++;
+            }
+        }
+
+        if ($supportsAvif && (!is_file($avifPath) || $force)) {
+            if (imageavif($image, $avifPath, 60)) {
+                $avifCount++;
+            }
+        }
+
+        imagedestroy($image);
+    }
+
+    $this->info('WebP generated: ' . $webpCount);
+    $this->info('AVIF generated: ' . $avifCount);
+    $this->info('Skipped: ' . $skipped);
+})->purpose('Generate WebP/AVIF versions of sign images.');

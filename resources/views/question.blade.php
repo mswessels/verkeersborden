@@ -14,7 +14,13 @@ header('Pragma: no-cache');
 	<div class="row">
 		<div class="col-md-3">
 			<div class="well clearfix">
-				<img src="img/borden/{{ $image }}" class="img-responsive">
+				@include('partials.sign-picture', [
+					'image' => $image,
+					'size' => 220,
+					'class' => 'img-responsive',
+					'alt' => 'Verkeersbord',
+					'loading' => 'eager',
+				])
 			</div>
 		</div>		
 		<div class="col-md-8">

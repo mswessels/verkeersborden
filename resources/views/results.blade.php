@@ -43,7 +43,12 @@ Vraag hier meteen je theorie examen aan. <a target="_blank" href="https://www.cb
 			
 			<div class="media">
 			  <div class="media-left">
-				  <img class="media-object" width="100" height="auto" src="{{ asset('img/borden/'.$correct->image) }}" alt="bord" loading="lazy">				
+				  @include('partials.sign-picture', [
+					'image' => $correct->image,
+					'size' => 100,
+					'class' => 'media-object',
+					'alt' => 'Verkeersbord',
+				  ])
 			  </div>
 			  <div class="media-body">
 				@if($question == $answer)

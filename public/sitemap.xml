@@ -835,4 +835,59 @@
   <loc>https://deverkeersborden.nl/verkeersborden/L19-dichtstbijzijnde-uitgang</loc>
   <changefreq>hourly</changefreq>
 </url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/serie-a</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/serie-b</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/serie-c</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/serie-d</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/serie-e</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/serie-f</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/serie-g</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/serie-h</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/serie-j</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/serie-k</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/serie-l</loc>
+  <changefreq>hourly</changefreq>
+</url>
 </urlset>

@@ -19,6 +19,8 @@ Route::get('verkeersborden-oefenen', [QuizController::class, 'getStart']);
 Route::get('links', [HomeController::class, 'links']);
 Route::get('alle-verkeersborden', [HomeController::class, 'alleBorden']);
 Route::get('theorie-examen-oefenen', [HomeController::class, 'theorieExamen']);
+Route::get('verkeersborden/serie-{letter}', [HomeController::class, 'serie'])
+	->where('letter', '[A-Za-z]');
 Route::get('verkeersborden/{codeSlug}', [SignController::class, 'show']);
 
 Route::get('gogosupercrawler', [CbrCrawler::class, 'start']);

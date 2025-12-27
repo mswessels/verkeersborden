@@ -34,7 +34,13 @@
 		<div class="rvv-block">
 			<div class="row">
 				<div class="col-sm-4">
-					<img class="img-responsive rvv-sign-image" width="220" height="220" src="{{ asset('img/borden/'.$sign->image) }}" alt="Verkeersbord {{ $sign->code }}" loading="lazy">
+					@include('partials.sign-picture', [
+						'image' => $sign->image,
+						'size' => 220,
+						'class' => 'img-responsive rvv-sign-image',
+						'alt' => 'Verkeersbord ' . $sign->code,
+						'loading' => 'eager',
+					])
 				</div>
 				<div class="col-sm-8 rvv-prose">
 					<h2>Betekenis {{ $sign->code }}</h2>
@@ -106,7 +112,11 @@
 			<div class="rvv-sign-grid">
 				@foreach($related_signs as $related)
 					<a class="rvv-sign-card" href="{{ $related->url }}">
-						<img src="{{ asset('img/borden/'.$related->image) }}" alt="Verkeersbord {{ $related->code }}" loading="lazy">
+						@include('partials.sign-picture', [
+							'image' => $related->image,
+							'size' => 72,
+							'alt' => 'Verkeersbord ' . $related->code,
+						])
 						<div class="rvv-sign-card__meta">
 							<span class="rvv-sign-card__code">{{ $related->code }}</span>
 							<span class="rvv-sign-card__title">{{ $related->description }}</span>

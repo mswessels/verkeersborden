@@ -11,6 +11,13 @@ class QuizController extends Controller {
 		$meta = array(
 			'meta_title' => 'Verkeersborden Oefenen',
 			'meta_description' => 'Verkeersborden oefenen kan hier gratis. We hebben een quiz gemaakt bestaande uit 20 verkeersborden, hoeveel ken jij er? Kom hier verkeersborden oefenen.',
+			'canonical' => url('/verkeersborden-oefenen'),
+			'meta_image' => asset('img/kaart.png'),
+			'meta_type' => 'website',
+			'breadcrumbs' => [
+				['label' => 'Home', 'url' => url('/')],
+				['label' => 'Verkeersborden oefenen', 'url' => null],
+			],
 		);
 		
 		return view('start' , $meta);

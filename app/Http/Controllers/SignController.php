@@ -53,6 +53,9 @@ class SignController extends Controller
 		$meta = [
 			'meta_title' => 'Verkeersbord ' . $sign->code . ': ' . $sign->description,
 			'meta_description' => 'Betekenis van verkeersbord ' . $sign->code . ' (' . $sign->description . '). Uitleg, ezelsbruggetje, veelgemaakte fout en oefenvragen.',
+			'canonical' => url('/verkeersborden/' . $canonical),
+			'meta_image' => asset('img/borden/' . $sign->image),
+			'meta_type' => 'article',
 		];
 
 		return view('sign', $meta + [
@@ -140,7 +143,7 @@ class SignController extends Controller
 
 	private function buildBreadcrumbs(Sign $sign, string $categoryLetter, string $categoryName): array
 	{
-		$seriesAnchor = url('/alle-verkeersborden#serie-' . Str::lower($categoryLetter));
+		$seriesAnchor = url('/verkeersborden/serie-' . Str::lower($categoryLetter));
 
 		return [
 			['label' => 'Home', 'url' => url('/')],
