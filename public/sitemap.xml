@@ -10,24 +10,84 @@
   <loc>https://deverkeersborden.nl/</loc>
   <changefreq>hourly</changefreq>
 </url>
+
 <url>
   <loc>https://deverkeersborden.nl/verkeersborden-oefenen</loc>
   <changefreq>hourly</changefreq>
 </url>
+
 <url>
   <loc>https://deverkeersborden.nl/alle-verkeersborden</loc>
   <changefreq>hourly</changefreq>
 </url>
+
 <url>
   <loc>https://deverkeersborden.nl/theorie-examen-oefenen</loc>
   <changefreq>hourly</changefreq>
 </url>
+
 <url>
   <loc>https://deverkeersborden.nl/quiz</loc>
   <changefreq>hourly</changefreq>
 </url>
+
 <url>
   <loc>https://deverkeersborden.nl/links</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/A1-maximumsnelheid</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/A2-einde-maximumsnelheid</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/A3-maximumsnelheid-op-een-electronisch-signaleringsbord</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/A4-adviessnelheid</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/A5-einde-adviessnelheid</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/B1-voorrangsweg</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/B2-einde-voorrangsweg</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/B3-voorrangskruispunt</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/B4-voorrangskruispunt-zijweg-links</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/B5-voorrangskruispunt-zijweg-rechts</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/B6-verleen-voorrang-aan-bestuurders-op-de-kruisende-weg</loc>
   <changefreq>hourly</changefreq>
 </url>
 </urlset>

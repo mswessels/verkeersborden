@@ -26,27 +26,74 @@
 				<p>Het is belangrijk om alle verkeersborden te leren. Uw CBR theorie-examen hangt er namelijk vanaf. En zonder deze theorie krijgt u geen rijbewijs. Veel succes met het leren van al die verkeersborden.</p>
 			</div>
 
-			<div class="rvv-block">
-				<h2>Alle verkeersborden onder elkaar</h2>
-				<div class="row mb10">
-				@foreach(\App\Sign::get() as $sign)
-					<div class="col-sm-6">
-						<div class="media">
-						  <div class="media-left">
-							  <img class="media-object" width="100" height="auto" src="{{ asset('img/borden/'.$sign->image) }}" alt="{{ $sign->description }}" title="{{ $sign->description }}" loading="lazy">				
-						  </div>
-						  <div class="media-body">
-								<p class="text-muted">
-									<b>{{ $sign->description }}</b>
-									<br/>{{ $sign->code }}
-								</p>
-						
-						  </div>
+			@php
+				$categories = \App\SignCategory::with(['signs' => function($query) {
+					$query->orderBy('code');
+				}])->orderBy('letter')->get();
+			@endphp
+
+			@if($categories->count())
+				<div class="rvv-block rvv-prose">
+					<h2>Alle verkeersborden per serie</h2>
+					<p>Kies een serie om snel naar het juiste hoofdstuk te springen. Klik op een bord voor de complete uitleg en oefenvragen.</p>
+					<div class="rvv-chip-list">
+						@foreach($categories as $category)
+							<a class="rvv-chip rvv-chip--link" href="#serie-{{ strtolower($category->letter) }}">Serie {{ $category->letter }}</a>
+						@endforeach
+					</div>
+				</div>
+
+				@foreach($categories as $category)
+					<div class="rvv-block rvv-prose" id="serie-{{ strtolower($category->letter) }}">
+						<h2>Serie {{ $category->letter }} - {{ $category->name }}</h2>
+						<p>Bekijk alle borden uit serie {{ $category->letter }} en klik op een bord voor betekenis, ezelsbruggetje en oefenvragen.</p>
+					</div>
+					<div class="rvv-block">
+						<div class="row mb10">
+						@foreach($category->signs as $sign)
+							<div class="col-sm-6">
+								<div class="media">
+								  <div class="media-left">
+									  <a class="rvv-sign-link" href="{{ $sign->url }}">
+										<img class="media-object" width="100" height="auto" src="{{ asset('img/borden/'.$sign->image) }}" alt="{{ $sign->description }}" title="{{ $sign->description }}" loading="lazy">
+									  </a>
+								  </div>
+								  <div class="media-body">
+										<p class="text-muted">
+											<a class="rvv-sign-link" href="{{ $sign->url }}"><b>{{ $sign->description }}</b></a>
+											<br/>{{ $sign->code }}
+										</p>
+								  </div>
+								</div>
+							</div>
+						@endforeach
 						</div>
 					</div>
 				@endforeach
+			@else
+				<div class="rvv-block">
+					<h2>Alle verkeersborden onder elkaar</h2>
+					<div class="row mb10">
+					@foreach(\App\Sign::orderBy('code')->get() as $sign)
+						<div class="col-sm-6">
+							<div class="media">
+							  <div class="media-left">
+								  <a class="rvv-sign-link" href="{{ $sign->url }}">
+									<img class="media-object" width="100" height="auto" src="{{ asset('img/borden/'.$sign->image) }}" alt="{{ $sign->description }}" title="{{ $sign->description }}" loading="lazy">
+								  </a>
+							  </div>
+							  <div class="media-body">
+									<p class="text-muted">
+										<a class="rvv-sign-link" href="{{ $sign->url }}"><b>{{ $sign->description }}</b></a>
+										<br/>{{ $sign->code }}
+									</p>
+							  </div>
+							</div>
+						</div>
+					@endforeach
+					</div>
 				</div>
-			</div>
+			@endif
 		</article>
 		
 		<aside class="col-sm-4 col-lg-4">
