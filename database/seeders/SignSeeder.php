@@ -24,63 +24,102 @@ class SignSeeder extends Seeder
             return;
         }
 
-        if (DB::table('signs_categories')->count() === 0) {
-            $categoryRows = $this->extractRows($contents, 'signs_categories');
-            $payload = [];
+        $categoryRows = $this->extractRows($contents, 'signs_categories');
+        $payload = [];
 
-            foreach ($categoryRows as $row) {
-                if (count($row) < 3) {
-                    continue;
-                }
-
-                $payload[] = [
-                    'id' => (int) $row[0],
-                    'name' => $this->normalizeValue($row[1]) ?? '',
-                    'letter' => $this->normalizeValue($row[2]) ?? '',
-                ];
+        foreach ($categoryRows as $row) {
+            if (count($row) < 3) {
+                continue;
             }
 
-            if ($payload) {
-                DB::table('signs_categories')->insert($payload);
-            }
+            $payload[] = [
+                'id' => (int) $row[0],
+                'name' => $this->normalizeValue($row[1]) ?? '',
+                'letter' => $this->normalizeValue($row[2]) ?? '',
+            ];
         }
 
-        if (DB::table('signs')->count() === 0) {
-            $signRows = $this->extractRows($contents, 'signs');
-            $payload = [];
+        if ($payload) {
+            DB::table('signs_categories')->upsert(
+                $payload,
+                ['id'],
+                ['name', 'letter']
+            );
+        }
 
-            foreach ($signRows as $row) {
-                if (count($row) < 7) {
-                    continue;
-                }
+        $signRows = $this->extractRows($contents, 'signs');
+        $payload = [];
 
-                $payload[] = [
-                    'id' => (int) $row[0],
-                    'category_id' => (int) $row[1],
-                    'name' => $this->normalizeValue($row[2]) ?? '',
-                    'description' => $this->normalizeValue($row[3]) ?? '',
-                    'description_short' => $this->normalizeValue($row[4]) ?? '',
-                    'image' => $this->normalizeValue($row[5]) ?? '',
-                    'code' => $this->normalizeValue($row[6]) ?? '',
-                ];
+        foreach ($signRows as $row) {
+            if (count($row) < 7) {
+                continue;
             }
 
-            if ($payload) {
-                foreach (array_chunk($payload, 100) as $chunk) {
-                    DB::table('signs')->insert($chunk);
-                }
+            $payload[] = [
+                'id' => (int) $row[0],
+                'category_id' => (int) $row[1],
+                'name' => $this->normalizeValue($row[2]) ?? '',
+                'description' => $this->normalizeValue($row[3]) ?? '',
+                'description_short' => $this->normalizeValue($row[4]) ?? '',
+                'image' => $this->normalizeValue($row[5]) ?? '',
+                'code' => $this->normalizeValue($row[6]) ?? '',
+            ];
+        }
+
+        if ($payload) {
+            foreach (array_chunk($payload, 100) as $chunk) {
+                DB::table('signs')->upsert(
+                    $chunk,
+                    ['id'],
+                    ['category_id', 'name', 'description', 'description_short', 'image', 'code']
+                );
             }
         }
     }
 
     private function extractRows(string $contents, string $table): array
     {
-        $pattern = '/INSERT INTO `' . preg_quote($table, '/') . '` VALUES (.+?);/s';
-        if (!preg_match($pattern, $contents, $matches)) {
+        $needle = 'INSERT INTO `' . $table . '` VALUES ';
+        $start = strpos($contents, $needle);
+        if ($start === false) {
             return [];
         }
 
-        $values = trim($matches[1]);
+        $start += strlen($needle);
+        $length = strlen($contents);
+        $inQuote = false;
+        $escape = false;
+        $end = null;
+
+        for ($i = $start; $i < $length; $i++) {
+            $char = $contents[$i];
+            if ($escape) {
+                $escape = false;
+                continue;
+            }
+
+            if ($char === "\\") {
+                $escape = true;
+                continue;
+            }
+
+            if ($char === "'") {
+                $inQuote = !$inQuote;
+                continue;
+            }
+
+            if (!$inQuote && $char === ';') {
+                $end = $i;
+                break;
+            }
+        }
+
+        if ($end === null) {
+            return [];
+        }
+
+        $values = substr($contents, $start, $end - $start);
+        $values = trim($values);
         $values = trim($values, "\r\n\t ");
 
         if (strpos($values, '(') === 0) {

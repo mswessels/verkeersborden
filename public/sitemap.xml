@@ -90,4 +90,749 @@
   <loc>https://deverkeersborden.nl/verkeersborden/B6-verleen-voorrang-aan-bestuurders-op-de-kruisende-weg</loc>
   <changefreq>hourly</changefreq>
 </url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/B7-stop-verleen-voorrang-aan-bestuurders-op-de-kruisende-weg</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/C1-gesloten-in-beide-richtingen-voor-voertuigen-ruiters-en-geleiders-van-rij-of-trekdieren-of-vee</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/C2-eenrichtingsweg-in-deze-richting-gesloten-voor-voertuigen-ruiters-en-geleiders-van-rij-of-trekdieren-of-vee</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/C3-eenrichtingsweg</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/C4-eenrichtingsweg</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/C5-inrijden-toegestaan</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/C6-gesloten-voor-motorvoertuigen-op-meer-dan-twee-wielen</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/C7-gesloten-voor-vrachtautos</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/C7a-gesloten-voor-autobussen</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/C7b-gesloten-voor-autobussen-en-vrachtautos</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/C8-gesloten-voor-motorvoertuigen-die-niet-sneller-kunnen-of-mogen-rijden-dan-25-kmh</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/C9-gesloten-voor-ruiters-vee-wagens-motorvoertuigen-die-niet-sneller-kunnen-of-mogen-rijden-dan-25-kmh-en-brommobielen-alsmede-fietsen-bromfietsen-en-gehandicaptenvoertuigen</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/C10-gesloten-voor-motorvoertuigen-met-aanhangwagen</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/C11-gesloten-voor-motorfietsen</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/C12-gesloten-voor-alle-motorvoertuigen</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/C13-gesloten-voor-bromfietsen-snorfietsen-en-gehandicaptenvoertuigen-met-in-werking-zijnde-motor</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/C14-gesloten-voor-fietsen-en-voor-gehandicaptenvoertuigen-zonder-motor</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/C15-gesloten-voor-fietsen-bromfietsen-en-gehandicaptenvoertuigen</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/C16-gesloten-voor-voetgangers</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/C17-gesloten-voor-voertuigen-en-samenstellen-van-voertuigen-die-met-inbegrip-van-de-lading-langer-zijn-dan-op-het-bord-is-aangegeven</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/C18-gesloten-voor-voertuigen-die-met-inbegrip-van-de-lading-breder-zijn-dan-op-het-bord-is-aangegeven</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/C19-gesloten-voor-voertuigen-die-met-inbegrip-van-de-lading-hoger-zijn-dan-op-het-bord-is-aangegeven</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/C20-gesloten-voor-voertuigen-waarvan-de-aslast-hoger-is-dan-op-het-bord-is-aangegeven</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/C21-gesloten-voor-voertuigen-en-samenstellen-van-voertuigen-waarvan-de-totaalmassa-hoger-is-dan-op-het-bord-is-aangegeven</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/C22-gesloten-voor-voertuigen-met-bepaalde-gevaarlijke-stoffen</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/C22a-gesloten-voor-vrachtautos-die-niet-voldoen-aan-de-eisen-genoemd-in-artikel-86d</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/C22b-einde-geslotenverklaring-voor-vrachtautos-die-niet-voldoen-aan-de-eisen-genoemd-in-artikel-86d</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/C23-01-spitsstrook-open</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/C23-02-spitsstrook-vrijmaken</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/C23-03-einde-spitsstrook</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/D1-rotonde-verplichte-rijrichting</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/D2-gebod-voor-alle-bestuurders-het-bord-voorbij-te-gaan-aan-de-zijde-die-de-pijl-aangeeft</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/D3-bord-mag-aan-beide-zijden-worden-voorbijgegaan</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/D4-gebod-tot-het-volgen-van-de-rijrichting-die-op-het-bord-is-aangegeven</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/D5-gebod-tot-het-volgen-van-de-rijrichting-die-op-het-bord-is-aangegeven</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/D6-gebod-tot-het-volgen-van-een-van-de-rijrichtingen-die-op-het-bord-zijn-aangegeven</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/D7-gebod-tot-het-volgen-van-een-van-de-rijrichtingen-die-op-het-bord-zijn-aangegeven</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/E1-parkeerverbod</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/E2-verbod-stil-te-staan</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/E3-verbod-fietsen-en-bromfietsen-te-plaatsen</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/E4-parkeergelegenheid</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/E5-taxistandplaats</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/E6-gehandicaptenparkeerplaats</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/E7-gelegenheid-bestemd-voor-het-onmiddellijk-laden-en-lossen-van-goederen</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/E8-parkeergelegenheid-alleen-bestemd-voor-de-voertuigcategorie-of-groep-voertuigen-die-op-het-bord-is-aangegeven</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/E9-parkeergelegenheid-alleen-bestemd-voor-vergunninghouders</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/E10-parkeerschijf-zone-met-verplicht-gebruik-van-parkeerschijf</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/E11-einde-parkeerschijf-zone-met-verplicht-gebruik-van-parkeerschijf</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/E12-parkeergelegenheid-ten-behoeve-van-overstappers-op-het-openbaar-vervoer</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/E13-parkeergelegenheid-ten-behoeve-van-carpoolers</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/F1-verbod-voor-motorvoertuigen-om-elkaar-onderling-in-te-halen</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/F2-einde-verbod-voor-motorvoertuigen-om-elkaar-onderling-in-te-halen</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/F3-verbod-voor-vrachtautos-om-motorvoertuigen-in-te-halen</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/F4-einde-verbod-voor-vrachtautos-om-motorvoertuigen-in-te-halen</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/F5-verbod-voor-bestuurders-door-te-gaan-bij-nadering-van-verkeer-uit-tegengestelde-richting</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/F6-bestuurders-uit-tegengestelde-richting-moeten-verkeer-dat-van-deze-richting-nadert-voor-laten-gaan</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/F7-keerverbod</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/F8-einde-van-alle-door-verkeersborden-aangegeven-verboden</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/F9-einde-van-alle-op-een-elektronisch-signaleringsbord-aangegeven-verboden</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/F10-stop-in-het-bord-kan-worden-aangegeven-door-wie-of-waarom-het-bord-wordt-toegepast</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/G1-autosnelweg</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/G2-einde-autosnelweg</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/G3-autoweg</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/G4-einde-autoweg</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/G5-erf</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/G6-einde-erf</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/G7-voetpad</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/G8-einde-voetpad</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/G9-ruiterpad</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/G10-einde-ruiterpad</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/G11-verplicht-fietspad</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/G12-einde-verplicht-fietspad</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/G12a-fietsbromfietspad</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/G12b-einde-fietsbromfietspad</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/G13-onverplicht-fietspad</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/G14-einde-onverplicht-fietspad</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/H1-bebouwde-kom</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/H2-einde-bebouwde-kom</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J1-let-op-slecht-wegdek</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J2-let-op-bocht-naar-rechts</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J3-let-op-bocht-naar-links</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J4-let-op-s-bochten-eerst-naar-rechts</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J5-let-op-s-bochten-eerst-naar-links</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J6-let-op-steile-helling</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J7-let-op-gevaarlijke-daling</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J8-let-op-gevaarlijk-kruispunt</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J9-let-op-rotonde</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J10-let-op-overweg-met-slagbomen</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J11-let-op-overweg-zonder-slagbomen</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J12-let-op-overweg-met-enkel-spoor</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J13-let-op-overweg-met-twee-of-meer-sporen</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J14-let-op-tramkruising</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J15-let-op-beweegbare-brug</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J16-let-op-werk-in-uitvoering</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J17-let-op-rijbaanversmalling</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J18-let-op-rijbaanversmalling-rechts</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J19-let-op-rijbaanversmalling-links</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J20-let-op-slipgevaar</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J21-let-op-kinderen</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J22-let-op-voetgangersoversteekplaats</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J23-let-op-voetgangers</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J24-let-op-fietsers-en-bromfietsers</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J25-let-op-losliggende-stenen</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J26-let-op-kade-of-rivieroever</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J27-let-op-groot-wild</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J28-let-op-vee</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J29-let-op-tegenliggers</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J30-let-op-laagvliegende-vliegtuigen</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J31-let-op-zijwind</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J32-let-op-verkeerslichten</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J33-let-op-file</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J34-let-op-ongeval</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J35-let-op-slecht-zicht-door-sneeuw-regen-of-mist</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J36-let-op-ijzel-of-sneeuw</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J37-let-op-gevaar-de-aard-van-het-gevaar-is-aangegeven-op-het-onderbord</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J38-let-op-verkeersdrempel</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/J39-let-op-elektrische-in-en-uitschuifbare-paal-in-de-rijbaan</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/K1-lage-beslissingwegwijzer-langs-autosnelweg-voor-de-doorgaande-richting-met-interlokale-doelen-en-routenummer-autosnelweg</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/K2-voorwegwijzer-langs-autosnelweg-voor-de-afgaande-richting-met-afstandaanduiding-afritnummer-interlokale-doelen-bovenste-doel-afritnaam-verwijzing-naar-vliegveldluchthaven-en-routenummer-niet-autosnelweg</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/K3-beslissingswegwijzer-langs-autosnelweg-voor-de-afgaande-richting-naar-een-verzorginsgsplaats-met-de-naam-van-de-parkeerplaats-en-symbolen-die-de-aard-van-de-voorzieningen-aangeven</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/K4-hoge-beslissingswegwijzer-langs-autosnelweg-met-rijstrookpaneel-voor-de-doorgaande-richting-en-aftakkingspaneel-voor-de-afgaande-richting-met-interlokale-doelen-routenummers-autosnelwegen-en-europese-hoofdroutes</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/K5-voorwegwijzer-langs-niet-autosnelweg-met-interlokale-doelen-routenummers-viaductsymbool-en-aanduiding-industrieterrein</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/K6-beslissingswegwijzer-langs-niet-autosnelweg-met-interlokale-doelen-en-routenummer-niet-autosnelweg</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/K7-wegwijzer-voor-fietsers-en-bromfietsers-handwijzer-met-lokaal-doel-interlokaal-doel-stedelijk-fietsroutenummer-boven-en-met-interlokale-doelen-en-interlokaal-fietsroutenummer-onder</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/K8-wegwijzer-voor-fietsers-en-bromfietsers-stapelbord-met-interlokale-doelen-en-een-via-een-alternatieve-route-te-bereiken-doel-cursief</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/K10-voorwegwijzer-binnen-de-bebouwde-kom-met-interlokaal-doel-lokaal-doel-een-dagrecreatiecentrum-objecten-en-stadsroutenummers</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/K11-voorsorteren-op-niet-autosnelweg-bord-met-interlokale-doelen-routenummers-en-verwijzing-naar-autosnelweg</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/K12-wijkwegwijzer-binnen-de-bebouwde-kom-met-wijknamen-in-verkeersgebieden</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/K13-wijkwegwijzer-binnen-de-bebouwde-kom-met-wijknummers-in-verkeersgebieden</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/K14-route-voor-het-vervoer-van-bepaalde-gevaarlijke-stoffen</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/L1-hoogte-onderdoorgang</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/L2-voetgangersoversteekplaats</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/L3-bushalte-tramhalte</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/L4-voorsorteren</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/L5-einde-rijstrook</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/L6-splitsing</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/L7-aantal-doorgaande-rijstroken</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/L8-doodlopende-weg</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/L9-vooraanduiding-doodlopende-weg</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/L10-vooraanduiding-verkeersmaatregel-voor-de-aangegeven-richting</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/L11-verkeersbord-geldt-alleen-voor-de-aangegeven-rijstrookrijstroken</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/L12-verkeersbord-geldt-alleen-voor-de-aangegeven-rijstrook</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/L13-verkeerstunnel</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/L14-vluchthaven</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/L15-vluchthaven-voorzien-van-een-noodtelefoon-en-brandblusapparaat</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/L16-noodtelefoon</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/L17-brandblusapparaat</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/L18-noodtelefoon-en-brandblusapparaat</loc>
+  <changefreq>hourly</changefreq>
+</url>
+
+<url>
+  <loc>https://deverkeersborden.nl/verkeersborden/L19-dichtstbijzijnde-uitgang</loc>
+  <changefreq>hourly</changefreq>
+</url>
 </urlset>
