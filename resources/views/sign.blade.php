@@ -8,7 +8,7 @@
 				@if($crumb['url'])
 					<a href="{{ $crumb['url'] }}">{{ $crumb['label'] }}</a>
 				@else
-					<span>{{ $crumb['label'] }}</span>
+					<span aria-current="page">{{ $crumb['label'] }}</span>
 				@endif
 			</li>
 		@endforeach
