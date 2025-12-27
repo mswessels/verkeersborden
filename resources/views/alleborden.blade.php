@@ -49,13 +49,13 @@
 						<p>Bekijk alle borden uit serie {{ $category->letter }} en klik op een bord voor betekenis, ezelsbruggetje en oefenvragen.</p>
 					</div>
 					<div class="rvv-block">
-						<div class="row mb10">
+						<div class="row mb10 rvv-sign-list">
 						@foreach($category->signs as $sign)
 							<div class="col-sm-6">
 								<div class="media">
 								  <div class="media-left">
 									  <a class="rvv-sign-link" href="{{ $sign->url }}">
-										<img class="media-object" width="100" height="auto" src="{{ asset('img/borden/'.$sign->image) }}" alt="{{ $sign->description }}" title="{{ $sign->description }}" loading="lazy">
+										<img class="media-object rvv-sign-thumb" width="100" height="auto" src="{{ asset('img/borden/'.$sign->image) }}" alt="{{ $sign->description }}" title="{{ $sign->description }}" loading="lazy">
 									  </a>
 								  </div>
 								  <div class="media-body">
@@ -73,13 +73,13 @@
 			@else
 				<div class="rvv-block">
 					<h2>Alle verkeersborden onder elkaar</h2>
-					<div class="row mb10">
+					<div class="row mb10 rvv-sign-list">
 					@foreach(\App\Sign::orderBy('code')->get() as $sign)
 						<div class="col-sm-6">
 							<div class="media">
 							  <div class="media-left">
 								  <a class="rvv-sign-link" href="{{ $sign->url }}">
-									<img class="media-object" width="100" height="auto" src="{{ asset('img/borden/'.$sign->image) }}" alt="{{ $sign->description }}" title="{{ $sign->description }}" loading="lazy">
+									<img class="media-object rvv-sign-thumb" width="100" height="auto" src="{{ asset('img/borden/'.$sign->image) }}" alt="{{ $sign->description }}" title="{{ $sign->description }}" loading="lazy">
 								  </a>
 							  </div>
 							  <div class="media-body">
