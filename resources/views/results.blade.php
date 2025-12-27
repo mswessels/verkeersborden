@@ -43,7 +43,7 @@ Vraag hier meteen je theorie examen aan. <a target="_blank" href="https://www.cb
 			
 			<div class="media">
 			  <div class="media-left">
-				  <img class="media-object" width="100" height="auto" src="{{ asset('img/borden/'.$correct->image) }}" alt="bord">				
+				  <img class="media-object" width="100" height="auto" src="{{ asset('img/borden/'.$correct->image) }}" alt="bord" loading="lazy">				
 			  </div>
 			  <div class="media-body">
 				@if($question == $answer)
@@ -115,5 +115,5 @@ Vraag hier meteen je theorie examen aan. <a target="_blank" href="https://www.cb
 			@endif
 			<a class="btn btn-default btn-lg btn-block" href="{{ url('/quiz/start') }}">Herstart de oefening</a>
 		</div>
-	</div><center><br><a href="http://ds1.nl/c/?wi=264206&si=8133&li=1375989&ws=" rel="nofollow" target="_blank"><img src="http://animated.dt71.net/8133/1375989/index.php?wi=264206&si=8133&li=1375989&ws=" alt="" style="max-width:100%;height:auto;border:none;" /></a></center><br><br>
+	</div>
 @endsection

@@ -5,13 +5,16 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<meta name="description" content="{{ isset($meta_description) ? $meta_description : '' }}">
+	<meta name="description" content="{{ isset($meta_description) ? $meta_description : '' }}">
 
-		<title>{{ isset($meta_title) ? $meta_title : ''}} - DeVerkeersborden.nl</title>
+	<title>{{ isset($meta_title) ? $meta_title : '' }}{{ isset($meta_title) && strpos($meta_title, 'DeVerkeersborden.nl') === false ? ' - DeVerkeersborden.nl' : '' }}</title>
 		
-		<meta property="og:title" content="Gratis Verkeersborden Oefenen" />
-		<meta property="og:description" content="Ik heb net verkeersborden geoefend! Nu jij!" />
-		<meta name="3b081b73cc1ab73" content="6b552ee54cdacb714c8704dda0128aff" />
+	<meta property="og:title" content="Gratis Verkeersborden Oefenen" />
+	<meta property="og:description" content="Ik heb net verkeersborden geoefend! Nu jij!" />
+	<meta name="3b081b73cc1ab73" content="6b552ee54cdacb714c8704dda0128aff" />
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -21,9 +24,10 @@
      });
 </script>
 		
-		<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.css" rel="stylesheet">
-		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-		@vite('resources/js/app.js')
+	<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+	@vite('resources/js/app.js')
+	<link href="{{ asset('css/rvv-2026.css') }}" rel="stylesheet">
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
@@ -32,9 +36,9 @@
 		<![endif]-->
 	</head>
 
-	<body>
+	<body class="rvv-body">
 
-	<nav class="navbar navbar-default navbar-fixed-top">
+	<nav class="navbar navbar-default rvv-topbar">
 	  <div class="container">
 		<div class="navbar-header">
 		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
@@ -52,11 +56,26 @@
 			<li><a href="{{ url('alle-verkeersborden') }}">Alle Verkeersborden</a></li>
 			<li><a href="{{ url('theorie-examen-oefenen') }}">Theorie examen</a></li>
 		  </ul>
+		  <ul class="nav navbar-nav navbar-right rvv-nav-actions">
+			<li class="rvv-nav-toggle">
+			  <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+				<span class="theme-toggle__orb" aria-hidden="true"></span>
+				<span class="theme-toggle__label">Thema</span>
+				<span class="theme-toggle__state" data-theme-label>licht</span>
+			  </button>
+			</li>
+		  </ul>
 		</div>
 	  </div>
 	</nav>
-	<div class="container"> 
-		<div class="ad text-center hidden-xs">
+	<div class="rvv-app">
+	  <main class="rvv-main">
+		<div class="container rvv-section rvv-section--content"> 
+
+			@yield('content')
+
+			<div class="rvv-ad rvv-ad--leaderboard hidden-xs">
+				<p class="rvv-ad__label">Advertentie</p>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Standaard ADV -->
 <ins class="adsbygoogle"
@@ -68,35 +87,16 @@
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-			<hr/>
+			</div>
+
+			<footer class="footer rvv-footer">
+			<p>
+				&copy; <a rel="home" href="{{ url('/') }}">DeVerkeersborden.nl</a> {{ date('Y') }}
+				<a class="pull-right" rel="nofollow" href="{{ url('/links') }}">Links</a>
+			</p>
+			</footer>
 		</div>
-	</div>
-	
-	<div class="container"> 
-
-		@yield('content')
-
-		<hr/>
-		<div class="ad text-center hidden-xs">
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- Standaard ADV -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-9270884602953965"
-     data-ad-slot="3103351936"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-		</div>
-
-		<footer class="footer">
-		<p>
-			&copy; <a rel="home" href="{{ url('/') }}">DeVerkeersborden.nl</a> {{ date('Y') }}
-			<a class="pull-right" rel="nofollow" href="{{ url('/links') }}">Links</a>
-		</p>
-		</footer>
+	  </main>
 	</div>
 	
 	
@@ -104,7 +104,9 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
 	@yield('footer_scripts')
-	
+
+	@yield('sticky_cta')
+	<script src="{{ asset('js/rvv-2026.js') }}"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

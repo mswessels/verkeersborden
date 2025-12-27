@@ -1,41 +1,30 @@
-<html>
+<!DOCTYPE html>
+<html lang="nl">
 	<head>
-		<link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
-
-		<style>
-			body {
-				margin: 0;
-				padding: 0;
-				width: 100%;
-				height: 100%;
-				color: #B0BEC5;
-				display: table;
-				font-weight: 100;
-				font-family: 'Lato';
-			}
-
-			.container {
-				text-align: center;
-				display: table-cell;
-				vertical-align: middle;
-			}
-
-			.content {
-				text-align: center;
-				display: inline-block;
-			}
-
-			.title {
-				font-size: 72px;
-				margin-bottom: 40px;
-			}
-		</style>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Onderhoud - DeVerkeersborden.nl</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="{{ asset('css/rvv-2026.css') }}" rel="stylesheet">
 	</head>
-	<body>
-		<div class="container">
-			<div class="content">
-				<div class="title">Be right back.</div>
-			</div>
+	<body class="rvv-body">
+		<div class="rvv-app">
+			<header class="rvv-hero">
+				<div class="rvv-hero__text">
+					<p class="rvv-eyebrow">503 onderhoud</p>
+					<h1 class="rvv-title">We zijn zo terug</h1>
+					<p class="rvv-lead">De site krijgt een kleine opfrisbeurt. Probeer het straks nog eens.</p>
+				</div>
+				<div class="rvv-controls">
+					<button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+						<span class="theme-toggle__orb" aria-hidden="true"></span>
+						<span class="theme-toggle__label">Thema</span>
+						<span class="theme-toggle__state" data-theme-label>licht</span>
+					</button>
+				</div>
+			</header>
 		</div>
+		<script src="{{ asset('js/rvv-2026.js') }}"></script>
 	</body>
 </html>

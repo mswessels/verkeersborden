@@ -15,8 +15,8 @@ class HomeController extends Controller {
 	public function index()
 	{		
 		$meta = array(
-			'meta_title' => 'Bekijk alle verkeersborden en doe een gratis Examen Test!',
-			'meta_description' => 'Verkeersborden zijn belangrijk om te kennen, op deze website kun je gratis verkeersborden oefenen en je kennis testen. Handig voor je CRB Examen rijbewijs.',
+			'meta_title' => 'Verkeersborden oefenen (gratis quiz) | DeVerkeersborden.nl',
+			'meta_description' => 'Oefen verkeersborden met een gratis quiz. Leer betekenissen, tips en ezelsbruggetjes en bereid je slim voor op je theorie-examen (CBR).',
 		);
 		
 		return view('home' ,$meta);

@@ -5,10 +5,11 @@
     <div class="row">
 		
         <article class="col-lg-9">
-			<h2 class="mt0">Bekijk deze websites ook eens</h2>
-			<a class="lead" style="font-weight:bold;" href="mailto:info@deverkeersborden.nl">Uw link hier? Klik hier.</a><br/><br/>
-			
-			<div class="row lead">			
+			<div class="rvv-block rvv-prose">
+				<h2 class="mt0">Bekijk deze websites ook eens</h2>
+				<a class="lead" style="font-weight:bold;" href="mailto:info@deverkeersborden.nl">Uw link hier? Klik hier.</a><br/><br/>
+				
+				<div class="row lead">			
 			
 			<p class="col-md-9">
 				<a target="_blank" href="http://wwww.rdwkentekenchecken.nl">RDW Kenteken Checken</a><br/>
@@ -33,6 +34,7 @@
                                 
 			</p>
 			
+				</div>
 			</div>
         </article>
 		
