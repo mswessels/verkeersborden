@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-	<div class="col-md-8 col-md-offset-2">
+	<div class="col-md-8 offset-md-2">
 		<div class="well text-center">
 			<h1 class="mt0">Welkom bij DeVerkeersborden.nl</h1>
 			<p class="text-muted">{{ Inspiring::quote() }}</p>

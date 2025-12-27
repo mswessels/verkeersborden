@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
 		
-        <article class="col-sm-8 col-lg-8">
+        <article class="col-md-8 col-lg-8">
 			<div class="rvv-block rvv-prose">
 				<h1 class="mt0">Alle verkeersborden</h1>	
 				<p>Welkom op de pagina waar u alle verkeersborden van Nederland op kunt vinden. Hier vindt u de betekenis van alle verkeersborden die in Nederland terug te vinden zijn, met een handige uitleg. Klik op een verkeersbord om de betekenis te bekijken en oefen zo gericht voor het CBR theorie-examen.</p>
@@ -66,7 +66,7 @@
 					<div class="rvv-block">
 						<div class="row mb10 rvv-sign-list">
 						@foreach($category->signs as $sign)
-							<div class="col-sm-6">
+							<div class="col-md-6">
 								<div class="media">
 								  <div class="media-left">
 									  <a class="rvv-sign-link" href="{{ $sign->url }}">
@@ -102,7 +102,7 @@
 						<h2>Alle verkeersborden onder elkaar</h2>
 						<div class="row mb10 rvv-sign-list">
 						@foreach(\App\Sign::orderBy('code')->get() as $sign)
-							<div class="col-sm-6">
+							<div class="col-md-6">
 								<div class="media">
 								  <div class="media-left">
 									  <a class="rvv-sign-link" href="{{ $sign->url }}">
@@ -130,7 +130,7 @@
 			@endif
 		</article>
 		
-		<aside class="col-sm-4 col-lg-4">
+		<aside class="col-md-4 col-lg-4">
 			@include('sidebar')
 		</aside>
 		

@@ -16,7 +16,7 @@
 @include('rectangle')
 
 <div class="row">
-	<article class="col-sm-8 col-lg-8">
+	<article class="col-md-8 col-lg-8">
 		<div class="rvv-block rvv-prose">
 			<p>
 			Wil je snel en goed <strong>verkeersborden oefenen</strong> voor je theorie-examen? Dan zit je hier goed.
@@ -324,7 +324,7 @@
 		</div>
 	</article>
 
-	<aside class="col-sm-4 col-lg-4">
+	<aside class="col-md-4 col-lg-4">
 		@include('sidebar')
 	</aside>
 </div>

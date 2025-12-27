@@ -2,16 +2,16 @@
 
 @section('content')
 	<div class="row">
-		<div class="hidden-xs hidden-sm col-md-3">
+		<div class="d-none d-lg-block col-lg-3">
 			@if( $passed )
-				<img class="img-responsive img-rounded" alt="geslaagd" src="{{ asset('img/passed.jpg') }}">
+				<img class="img-fluid rounded" alt="geslaagd" src="{{ asset('img/passed.jpg') }}">
 			@else 
-				<img class="img-responsive img-rounded" alt="gezakt" src="{{ asset('img/failed.jpg') }}">
+				<img class="img-fluid rounded" alt="gezakt" src="{{ asset('img/failed.jpg') }}">
 			@endif
 			<br>
 			<a class="btn btn-default btn-lg btn-block" href="{{ url('/quiz/start') }}">Herstart de oefening</a>
 		</div>
-		<div class="col-sm-8 col-md-6">
+		<div class="col-md-8 col-lg-6">
 			@if( $passed )
 			
 				<h1 class="text-success mt0"><b>Gefeliciteerd</b>, je bent geslaagd!</h1>
@@ -67,7 +67,7 @@ Vraag hier meteen je theorie examen aan. <a target="_blank" href="https://www.cb
 			<br/>
 			<br/>
 		</div>
-		<div class="col-sm-4 col-md-3">
+		<div class="col-md-4 col-lg-3">
 			<div class="panel panel-default">
 			  <!-- Default panel contents -->
 			  <div class="panel-heading"><h3 class="panel-title">Mijn eerder behaalde scores</h3></div>
@@ -78,8 +78,8 @@ Vraag hier meteen je theorie examen aan. <a target="_blank" href="https://www.cb
 				
 				<li class="list-group-item">
 					<span style="display:block" class="clearfix">
-						<small class="pull-right text-muted" style="display:inline-block;">{{ $myresult->created_at->format('H:i d-m-Y') }}</small>
-						<span class="pull-left {{ $myresult->right >= 15 ? 'text-success' : 'text-danger' }}" style="display:inline-block;line-height:14px;margin-bottom:8px;">{{ $myresult->right >= 15 ? 'Geslaagd' : 'Gezakt' }}</span>
+						<small class="float-end text-muted" style="display:inline-block;">{{ $myresult->created_at->format('H:i d-m-Y') }}</small>
+						<span class="float-start {{ $myresult->right >= 15 ? 'text-success' : 'text-danger' }}" style="display:inline-block;line-height:14px;margin-bottom:8px;">{{ $myresult->right >= 15 ? 'Geslaagd' : 'Gezakt' }}</span>
 					</span>
 					
 					<div class="progress" style="margin-bottom:0px">
@@ -94,7 +94,7 @@ Vraag hier meteen je theorie examen aan. <a target="_blank" href="https://www.cb
 			</div>
 			
 			@if( count( $otherresults ) )
-			<div class="panel panel-default hidden-xs hidden-sm">
+			<div class="panel panel-default d-none d-lg-block">
 			  <div class="panel-heading"><h3 class="panel-title">Andere kandidaten</h3></div>
 
 			  <ul class="list-group">
@@ -103,8 +103,8 @@ Vraag hier meteen je theorie examen aan. <a target="_blank" href="https://www.cb
 				
 				<li class="list-group-item">
 					<span style="display:block" class="clearfix">
-						<small class="pull-right text-muted" style="display:inline-block;">{{ $otherresult->created_at->format('d-m-Y') }}</small>
-						<span class="pull-left {{ $otherresult->right >= 15 ? 'text-success' : 'text-danger' }}" style="display:inline-block;line-height:14px;margin-bottom:8px;">{{ explode(' ',$otherresult->user->name)[0] }} is {{ $otherresult->right >= 15 ? 'geslaagd' : 'gezakt' }}</span>
+						<small class="float-end text-muted" style="display:inline-block;">{{ $otherresult->created_at->format('d-m-Y') }}</small>
+						<span class="float-start {{ $otherresult->right >= 15 ? 'text-success' : 'text-danger' }}" style="display:inline-block;line-height:14px;margin-bottom:8px;">{{ explode(' ',$otherresult->user->name)[0] }} is {{ $otherresult->right >= 15 ? 'geslaagd' : 'gezakt' }}</span>
 					</span>
 					
 					<div class="progress" style="margin-bottom:0px">

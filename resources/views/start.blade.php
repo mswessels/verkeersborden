@@ -16,10 +16,10 @@
 @include('rectangle')
 
 <div class="row">
-	<article class="col-sm-8 col-lg-8">
+	<article class="col-md-8 col-lg-8">
 		<div class="rvv-block">
 			<div class="row">
-				<div class="col-md-8 rvv-prose">
+				<div class="col-12 col-lg-8 rvv-prose">
 					<h2>Uitleg</h2>
 					<p>Welkom bij de verkeersborden oefening. Onze oefening bestaat uit 20 vragen. Per vraag krijg je 1 verkeersbord en 4 meerkeuze antwoorden.</p>
 					<p>Om te slagen heb je minimaal 15 goede antwoorden nodig. Na de 20 vragen krijg je een gedetailleerd overzicht met je antwoorden.</p>
@@ -31,8 +31,8 @@
 						<li>De test is helemaal gratis</li>
 					</ul>
 				</div>
-				<div class="col-md-4 hidden-sm hidden-xs">
-					<img src="{{ asset('img/rotonde.png') }}" width="250" height="250" alt="rotonde" title="rotonde" class="img-responsive">
+				<div class="col-lg-4 d-none d-lg-block">
+					<img src="{{ asset('img/rotonde.png') }}" width="250" height="250" alt="rotonde" title="rotonde" class="img-fluid">
 				</div>
 			</div>
 		</div>
@@ -53,7 +53,7 @@
 		</div>
 	</article>
 
-	<aside class="col-sm-4 col-lg-4">
+	<aside class="col-md-4 col-lg-4">
 		@include('sidebar')
 	</aside>
 </div>

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Schedule;
 use Illuminate\Support\Str;
 use App\Sign;
 use App\SignCategory;
+use App\Services\CbrRijschoolCrawler;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,64 @@ use App\SignCategory;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
+
+Artisan::command('cbr:crawl {--letters=} {--limit=} {--dry-run} {--sleep=200}', function () {
+    $lettersOption = $this->option('letters');
+    $letters = [];
+
+    if (!$lettersOption || strtolower($lettersOption) === 'all') {
+        $letters = range('a', 'z');
+    } else {
+        foreach (explode(',', $lettersOption) as $chunk) {
+            $chunk = strtolower(trim($chunk));
+            if ($chunk === '') {
+                continue;
+            }
+
+            if (preg_match('/^[a-z]-[a-z]$/', $chunk)) {
+                $start = ord($chunk[0]);
+                $end = ord($chunk[2]);
+                if ($start <= $end) {
+                    for ($i = $start; $i <= $end; $i++) {
+                        $letters[] = chr($i);
+                    }
+                } else {
+                    for ($i = $start; $i >= $end; $i--) {
+                        $letters[] = chr($i);
+                    }
+                }
+                continue;
+            }
+
+            $letters[] = $chunk;
+        }
+    }
+
+    $letters = array_values(array_unique($letters));
+
+    if (!$letters) {
+        $this->error('Geen letters opgegeven om te crawlen.');
+        return;
+    }
+
+    $limit = $this->option('limit');
+    $limit = $limit !== null ? (int) $limit : null;
+    $sleepMs = (int) $this->option('sleep');
+    $dryRun = (bool) $this->option('dry-run');
+
+    /** @var CbrRijschoolCrawler $crawler */
+    $crawler = app(CbrRijschoolCrawler::class);
+    $stats = $crawler->crawl($letters, $dryRun, $limit, $sleepMs, function (string $message): void {
+        $this->line($message);
+    });
+
+    $this->info('Klaar.');
+    $this->line('Queries: ' . $stats['queries']);
+    $this->line('Gevonden: ' . $stats['schools_seen']);
+    $this->line('Opgeslagen: ' . $stats['schools_saved']);
+    $this->line('Overgeslagen: ' . $stats['schools_skipped']);
+    $this->line('Fouten: ' . $stats['errors']);
+})->purpose('Crawl CBR rijschool data');
 
 Artisan::command('sitemap:generate {--base=}', function () {
     $base = $this->option('base');
@@ -323,6 +382,11 @@ Schedule::command('sitemap:generate')
     ->dailyAt('02:15')
     ->withoutOverlapping()
     ->description('Generate sitemap.xml nightly.');
+
+Schedule::command('cbr:crawl --letters=all --sleep=300')
+    ->dailyAt('03:00')
+    ->withoutOverlapping()
+    ->description('Crawl CBR rijschool data nightly.');
 
 Artisan::command('sign-images:generate {--force}', function () {
     $sourceDir = public_path('img/borden');

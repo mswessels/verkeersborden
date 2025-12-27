@@ -17,7 +17,7 @@ header('Pragma: no-cache');
 				@include('partials.sign-picture', [
 					'image' => $image,
 					'size' => 220,
-					'class' => 'img-responsive',
+					'class' => 'img-fluid',
 					'alt' => 'Verkeersbord',
 					'loading' => 'eager',
 				])
@@ -47,7 +47,7 @@ header('Pragma: no-cache');
 				
 				<hr>
 				
-				<span class="meta-item pull-right"><i class="fa fa-graduation-cap hidden-xs"></i> {{ $count }} / 20</span>
+				<span class="meta-item float-end"><i class="fa fa-graduation-cap d-none d-md-inline"></i> {{ $count }} / 20</span>
 				<button type="submit" class="btn btn-primary">Volgende vraag</button>
 				<span class="meta-item"><i class="fa fa-history"></i> <span id="timer">20</span></span>
 			</form>
@@ -68,10 +68,10 @@ function timer()
 	if (count < 0)
 	{
 		clearInterval(counter);
-		$('form#quiz').submit();
+		document.getElementById("quiz").submit();
 		return;
 	}
-	document.getElementById("timer").innerHTML = count;
+	document.getElementById("timer").textContent = count;
 }
 </script>
 @endsection

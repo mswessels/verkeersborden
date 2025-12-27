@@ -7,8 +7,8 @@
 		<h3 class="omb_authTitle">We zijn je antwoorden aan het nakijken...</h3>
 		<h4 class="omb_authTitle text-muted">Vul je naam en e-mailadres in om je uitslag te bekijken. Geen zorgen, wij houden ook niet van spam.</h4>
 
-		<div class="row col-md-offset-3">
-			<div class="col-xs-12 col-md-8">	
+		<div class="row justify-content-center">
+			<div class="col-12 col-md-8">	
 				<form class="omb_loginForm" role="form" autocomplete="off" method="POST" action="{{ url('/auth/register') }}">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					

@@ -1,4 +1,4 @@
-<div class="col-sm-2">
+<div class="col-md-2">
 	<nav class="nav-sidebar">
 		<ul class="nav tabs">
 		  <li class=""><a href="{{ URL::to('/user/account') }}">Account</a></li>

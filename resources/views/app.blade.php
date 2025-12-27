@@ -96,7 +96,7 @@
      });
 </script>
 		
-	<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 	@vite('resources/js/app.js')
 	<link href="{{ asset('css/rvv-2026.css') }}" rel="stylesheet">
@@ -110,26 +110,21 @@
 
 	<body class="rvv-body">
 
-	<nav class="navbar navbar-default rvv-topbar">
+	<nav class="navbar navbar-expand-md rvv-topbar">
 	  <div class="container">
-		<div class="navbar-header">
-		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-			<span class="sr-only">Toggle navigation</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		  </button>
 		  <a class="navbar-brand" href="{{ url('/') }}"><i class="fa fa-car"></i> DeVerkeersborden.nl</a>
-		</div>
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Menu">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
 
 		<div class="collapse navbar-collapse" id="navbar">
-		  <ul class="nav navbar-nav">
-			<li><a href="{{ url('verkeersborden-oefenen') }}">Verkeersborden Oefenen</a></li>        
-			<li><a href="{{ url('alle-verkeersborden') }}">Alle Verkeersborden</a></li>
-			<li><a href="{{ url('theorie-examen-oefenen') }}">Theorie examen</a></li>
+		  <ul class="navbar-nav me-auto">
+			<li class="nav-item"><a class="nav-link" href="{{ url('verkeersborden-oefenen') }}">Verkeersborden Oefenen</a></li>
+			<li class="nav-item"><a class="nav-link" href="{{ url('alle-verkeersborden') }}">Alle Verkeersborden</a></li>
+			<li class="nav-item"><a class="nav-link" href="{{ url('theorie-examen-oefenen') }}">Theorie examen</a></li>
 		  </ul>
-		  <ul class="nav navbar-nav navbar-right rvv-nav-actions">
-			<li class="rvv-nav-toggle">
+		  <ul class="navbar-nav ms-md-auto rvv-nav-actions">
+			<li class="nav-item rvv-nav-toggle">
 			  <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
 				<span class="theme-toggle__orb" aria-hidden="true"></span>
 				<span class="theme-toggle__label">Thema</span>
@@ -146,7 +141,7 @@
 
 			@yield('content')
 
-			<div class="rvv-ad rvv-ad--leaderboard hidden-xs">
+			<div class="rvv-ad rvv-ad--leaderboard d-none d-md-block">
 				<p class="rvv-ad__label">Advertentie</p>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Standaard ADV -->
@@ -164,7 +159,7 @@
 			<footer class="footer rvv-footer">
 			<p>
 				&copy; <a rel="home" href="{{ url('/') }}">DeVerkeersborden.nl</a> {{ date('Y') }}
-				<a class="pull-right" rel="nofollow" href="{{ url('/links') }}">Links</a>
+				<a class="float-end" rel="nofollow" href="{{ url('/links') }}">Links</a>
 			</p>
 			</footer>
 		</div>
@@ -172,8 +167,7 @@
 	</div>
 	
 	
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 	@yield('footer_scripts')
 

@@ -30,19 +30,19 @@
 @include('rectangle')
 
 <div class="row">
-	<article class="col-sm-8 col-lg-8">
+	<article class="col-md-8 col-lg-8">
 		<div class="rvv-block">
 			<div class="row">
-				<div class="col-sm-4">
+				<div class="col-md-4">
 					@include('partials.sign-picture', [
 						'image' => $sign->image,
 						'size' => 220,
-						'class' => 'img-responsive rvv-sign-image',
+						'class' => 'img-fluid rvv-sign-image',
 						'alt' => 'Verkeersbord ' . $sign->code,
 						'loading' => 'eager',
 					])
 				</div>
-				<div class="col-sm-8 rvv-prose">
+				<div class="col-md-8 rvv-prose">
 					<h2>Betekenis {{ $sign->code }}</h2>
 					<p>{{ $meaning }}</p>
 					<div class="rvv-chip-list">
@@ -166,7 +166,7 @@
 		@endif
 	</article>
 
-	<aside class="col-sm-4 col-lg-4">
+	<aside class="col-md-4 col-lg-4">
 		@include('sidebar')
 	</aside>
 </div>

@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
 		
-        <article class="col-sm-8 col-lg-8">
+        <article class="col-md-8 col-lg-8">
 			<div class="rvv-block rvv-prose">
 				<h1 class="mt0">Theorie examen oefenen <small>dat kan hier gratis</small></h1>
 				<p>Wilt u graag uw theorie examen oefenen voor uw CBR auto, bromfiets of motor theorie-examen? Dan bent u op deze pagina aan het juiste adres. Wij houden de verkeersborden en regels actueel zodat u met vertrouwen oefent.</p>
@@ -35,7 +35,7 @@
 			</div>
 	   </article>
 		
-		<aside class="col-sm-4 col-lg-4">
+		<aside class="col-md-4 col-lg-4">
 			@include('sidebar')
 		</aside>
 		

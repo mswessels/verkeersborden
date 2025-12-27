@@ -32,7 +32,7 @@
 @include('rectangle')
 
 <div class="row">
-	<article class="col-sm-8 col-lg-8">
+	<article class="col-md-8 col-lg-8">
 		<div class="rvv-block rvv-prose">
 			<h2>Over serie {{ $category->letter }}</h2>
 			<p>{{ $series_info['intro'] }}</p>
@@ -51,7 +51,7 @@
 			<h2>Alle verkeersborden in serie {{ $category->letter }}</h2>
 			<div class="row mb10 rvv-sign-list">
 				@foreach($signs as $sign)
-					<div class="col-sm-6">
+					<div class="col-md-6">
 						<div class="media">
 							<div class="media-left">
 								<a class="rvv-sign-link" href="{{ $sign->url }}">
@@ -89,7 +89,7 @@
 		@endif
 	</article>
 
-	<aside class="col-sm-4 col-lg-4">
+	<aside class="col-md-4 col-lg-4">
 		@include('sidebar')
 	</aside>
 </div>

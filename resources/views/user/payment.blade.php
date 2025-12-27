@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-4 col-md-offset-2">
+		<div class="col-md-4 offset-md-2">
 			<div class="panel panel-default">
 				<div class="panel-heading">Pay here</div>
 				<div class="panel-body">
@@ -44,6 +44,7 @@
 @endsection
 
 @section('footer_scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
  <script type="text/javascript">
     // This identifies your website in the createToken call below
