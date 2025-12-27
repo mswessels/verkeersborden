@@ -676,22 +676,58 @@ h4 small {
 .rvv-qa {
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  padding: var(--space-2);
   background: var(--bg-elev-2);
+  padding: 0;
+  overflow: hidden;
 }
 
 .rvv-qa summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
   font-weight: 600;
   cursor: pointer;
   list-style: none;
+  padding: var(--space-2) var(--space-3);
+  background: var(--bg-elev);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.rvv-qa summary:hover {
+  background: var(--bg-elev-2);
+}
+
+.rvv-qa summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.rvv-qa summary::after {
+  content: "+";
+  margin-left: auto;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.rvv-qa[open] summary {
+  border-bottom: 1px solid var(--border);
+}
+
+.rvv-qa[open] summary::after {
+  content: "-";
 }
 
 .rvv-qa summary::-webkit-details-marker {
   display: none;
 }
 
+.rvv-qa summary::marker {
+  content: "";
+}
+
 .rvv-qa p {
-  margin-top: var(--space-1);
+  margin: 0;
+  padding: var(--space-2) var(--space-3);
 }
 
 .rvv-sign-grid,
@@ -711,20 +747,25 @@ h4 small {
   background: var(--bg-elev);
   color: var(--ink);
   text-decoration: none;
+  height: 100%;
+  min-height: 120px;
 }
 
 .rvv-sign-card img {
-  width: 64px;
-  height: auto;
+  width: 72px;
+  height: 72px;
   padding: 6px;
   border-radius: var(--radius-sm);
   background: var(--bg-elev-2);
+  object-fit: contain;
+  flex: 0 0 72px;
 }
 
 .rvv-sign-card__meta {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  min-width: 0;
 }
 
 .rvv-sign-card__code {
@@ -735,6 +776,10 @@ h4 small {
 .rvv-sign-card__title {
   color: var(--ink-soft);
   font-size: 0.95rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .rvv-sign-card:hover,
